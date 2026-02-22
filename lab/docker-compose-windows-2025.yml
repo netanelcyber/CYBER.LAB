@@ -1,0 +1,279 @@
+version: '3.8'
+
+services:
+  # ═══════════════════════════════════════════════════════════════════════════
+  # WINDOWS SERVER 2025 LAB ENVIRONMENT
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  # Windows Server 2025 - Domain Controller
+  windows-server-2025-dc:
+    image: mcr.microsoft.com/windows/servercore:ltsc2025
+    container_name: cyber-lab-windows-dc-2025
+    hostname: WIN-DC-2025
+    environment:
+      ACCEPT_EULA: "Y"
+      ADMIN_PASSWORD: "P@ssw0rd2026!"
+      DOMAIN_NAME: "cyber.lab"
+      DOMAIN_ADMIN: "LabAdmin"
+      DOMAIN_PASSWORD: "P@ssw0rd2026!"
+    volumes:
+      - windows_dc_2025:/windows-system
+      - ./windows-setup-dc-2025.ps1:/setup/setup-dc.ps1
+    ports:
+      - "3389:3389"        # RDP
+      - "5985:5985"        # WinRM HTTP
+      - "5986:5986"        # WinRM HTTPS
+      - "88:88"            # Kerberos
+      - "389:389"          # LDAP
+      - "636:636"          # LDAP SSL
+      - "445:445"          # SMB
+      - "135:135"          # RPC
+    networks:
+      lab-network:
+        ipv4_address: 172.28.1.10
+
+  # Windows Server 2025 - Exchange 2025 Server
+  windows-server-2025-exchange:
+    image: mcr.microsoft.com/windows/servercore:ltsc2025
+    container_name: cyber-lab-windows-exchange-2025
+    hostname: WIN-EXCH-2025
+    depends_on:
+      - windows-server-2025-dc
+    environment:
+      ACCEPT_EULA: "Y"
+      ADMIN_PASSWORD: "P@ssw0rd2026!"
+      DOMAIN: "cyber.lab"
+      DOMAIN_ADMIN: "LabAdmin"
+      DOMAIN_PASSWORD: "P@ssw0rd2026!"
+    volumes:
+      - windows_exchange_2025:/windows-system
+      - exchange_data:/data
+      - ./windows-setup-exchange-2025.ps1:/setup/setup-exchange.ps1
+    ports:
+      - "3390:3389"        # RDP
+      - "25:25"            # SMTP
+      - "110:110"          # POP3
+      - "143:143"          # IMAP
+      - "587:587"          # Submission
+      - "993:993"          # IMAPS
+      - "995:995"          # POP3S
+      - "443:443"          # HTTPS
+      - "80:80"            # HTTP
+    networks:
+      lab-network:
+        ipv4_address: 172.28.1.11
+
+  # Windows Server 2025 - SharePoint/OneDrive Server
+  windows-server-2025-sharepoint:
+    image: mcr.microsoft.com/windows/servercore:ltsc2025
+    container_name: cyber-lab-windows-sharepoint-2025
+    hostname: WIN-SP-2025
+    depends_on:
+      - windows-server-2025-dc
+    environment:
+      ACCEPT_EULA: "Y"
+      ADMIN_PASSWORD: "P@ssw0rd2026!"
+      DOMAIN: "cyber.lab"
+      DOMAIN_ADMIN: "LabAdmin"
+      DOMAIN_PASSWORD: "P@ssw0rd2026!"
+    volumes:
+      - windows_sharepoint_2025:/windows-system
+      - sharepoint_data_2025:/data
+      - ./windows-setup-sharepoint-2025.ps1:/setup/setup-sharepoint.ps1
+    ports:
+      - "3391:3389"        # RDP
+      - "8443:8443"        # SharePoint HTTPS
+      - "8080:8080"        # SharePoint HTTP
+    networks:
+      lab-network:
+        ipv4_address: 172.28.1.12
+
+  # Windows 11 Pro - End User Machine
+  windows-11-pro:
+    image: mcr.microsoft.com/windows/servercore:ltsc2025
+    container_name: cyber-lab-windows-11-pro
+    hostname: USER-PC-2025
+    depends_on:
+      - windows-server-2025-dc
+    environment:
+      ACCEPT_EULA: "Y"
+      ADMIN_PASSWORD: "P@ssw0rd2026!"
+      DOMAIN: "cyber.lab"
+      LOCAL_USER: "user"
+      LOCAL_PASSWORD: "User2026!"
+    volumes:
+      - windows_user_2025:/windows-system
+      - user_data_2025:/data
+      - ./windows-setup-user-pc-2025.ps1:/setup/setup-user-pc.ps1
+    ports:
+      - "3392:3389"        # RDP
+      - "5986:5986"        # WinRM
+    networks:
+      lab-network:
+        ipv4_address: 172.28.1.20
+
+  # Windows Server 2025 - Vulnerable/Honeypot
+  windows-server-2025-honeypot:
+    image: mcr.microsoft.com/windows/servercore:ltsc2025
+    container_name: cyber-lab-windows-honeypot-2025
+    hostname: WIN-HONEYPOT
+    environment:
+      ACCEPT_EULA: "Y"
+      ADMIN_PASSWORD: "P@ssw0rd2026!"
+    volumes:
+      - windows_honeypot_2025:/windows-system
+      - ./windows-setup-honeypot-2025.ps1:/setup/setup-honeypot.ps1
+    ports:
+      - "3393:3389"        # RDP
+      - "8000:8000"        # Custom services
+      - "8443:8443"        # HTTPS
+      - "139:139"          # SMB
+    networks:
+      lab-network:
+        ipv4_address: 172.28.1.30
+      outside-network:     # Also exposed externally
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # PREVIOUS LAB SERVICES (Integrated)
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  # Drupal 7
+  drupal7-db:
+    image: mysql:5.7
+    container_name: drupal7-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root123456
+      MYSQL_DATABASE: drupal
+      MYSQL_USER: drupal
+      MYSQL_PASSWORD: drupal123456
+    volumes:
+      - drupal7_db:/var/lib/mysql
+    networks:
+      lab-network:
+        ipv4_address: 172.28.0.21
+
+  drupal7:
+    image: drupal:7.96
+    container_name: drupal7-app
+    depends_on:
+      - drupal7-db
+    environment:
+      DRUPAL_DB_HOST: drupal7-db:3306
+      DRUPAL_DB_NAME: drupal
+      DRUPAL_DB_USER: drupal
+      DRUPAL_DB_PASSWORD: drupal123456
+    volumes:
+      - drupal7_files:/var/www/html/sites/default/files
+    ports:
+      - "8001:80"
+    networks:
+      lab-network:
+        ipv4_address: 172.28.0.22
+
+  # WordPress
+  wordpress-db:
+    image: mysql:5.7
+    container_name: wordpress-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root123456
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress123456
+    volumes:
+      - wordpress_db:/var/lib/mysql
+    networks:
+      lab-network:
+        ipv4_address: 172.28.0.23
+
+  wordpress:
+    image: wordpress:6.2-php7.4
+    container_name: wordpress-app
+    depends_on:
+      - wordpress-db
+    environment:
+      WORDPRESS_DB_HOST: wordpress-db:3306
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress123456
+    volumes:
+      - wordpress_files:/var/www/html
+    ports:
+      - "8002:80"
+    networks:
+      lab-network:
+        ipv4_address: 172.28.0.24
+
+  # Monitoring
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.0.0
+    container_name: cyber-lab-elasticsearch
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    ports:
+      - "9200:9200"
+    networks:
+      lab-network:
+        ipv4_address: 172.28.0.50
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.0.0
+    container_name: cyber-lab-kibana
+    depends_on:
+      - elasticsearch
+    ports:
+      - "5601:5601"
+    environment:
+      ELASTICSEARCH_HOSTS: http://elasticsearch:9200
+    networks:
+      lab-network:
+        ipv4_address: 172.28.0.51
+
+  # Samba DC (Alternative LDAP)
+  samba-dc:
+    image: samba:4.20
+    container_name: cyber-lab-samba-dc
+    hostname: SAMBA-DC
+    environment:
+      DOMAIN: cyber.lab
+      REALM: CYBER.LAB
+      ADMINPASS: P@ssw0rd2026!
+    volumes:
+      - samba_data:/var/lib/samba
+    ports:
+      - "8389:389"
+      - "8445:445"
+    networks:
+      lab-network:
+        ipv4_address: 172.28.0.2
+
+volumes:
+  windows_dc_2025:
+  windows_exchange_2025:
+  exchange_data:
+  windows_sharepoint_2025:
+  sharepoint_data_2025:
+  windows_user_2025:
+  user_data_2025:
+  windows_honeypot_2025:
+  drupal7_db:
+  drupal7_files:
+  wordpress_db:
+  wordpress_files:
+  elasticsearch_data:
+  samba_data:
+
+networks:
+  lab-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.0.0/16
+  outside-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.100.0/24

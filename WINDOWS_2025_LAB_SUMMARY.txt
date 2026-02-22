@@ -1,0 +1,243 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                 CYBER.LAB - WINDOWS SERVER 2025 ENVIRONMENT                 ║
+║                    Complete Enterprise Lab Infrastructure                     ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+📊 COMPREHENSIVE LAB OVERVIEW
+═════════════════════════════════════════════════════════════════════════════════
+
+🏢 ENTERPRISE INFRASTRUCTURE (5 Windows 2025 Machines on Unified LAN):
+
+1. DOMAIN CONTROLLER (WIN-DC-2025) - 172.28.1.10
+   ├─ Role: Active Directory, DNS, Kerberos authentication server
+   ├─ Services: Windows Server 2025 Core
+   ├─ Key Ports: LDAP (389), Kerberos (88), SMB (445), RDP (3389)
+   ├─ Users Created: 6 (LabAdmin, ITManager, FinanceUser, HRUser, etc)
+   ├─ Groups Created: 4 (IT-Admins, Finance-Team, HR-Team, Exchange-Admins)
+   └─ Access: RDP localhost:3389 (LabAdmin/P@ssw0rd2026!)
+
+2. EXCHANGE SERVER 2025 (WIN-EXCH-2025) - 172.28.1.11
+   ├─ Role: Email server, messaging platform
+   ├─ Services: SMTP, IMAP, POP3, HTTP/HTTPS
+   ├─ Key Ports: SMTP (25), IMAP (143), IMAPS (993), HTTP (80), HTTPS (443)
+   ├─ Mailboxes: admin@cyber.lab, exchange@cyber.lab, user@cyber.lab
+   ├─ Databases: 2 mailbox databases configured
+   ├─ Domain Integration: Joined to cyber.lab
+   └─ Access: RDP localhost:3390 or SMTP/IMAP on mapped ports
+
+3. SHAREPOINT/ONEDRIVE (WIN-SP-2025) - 172.28.1.12
+   ├─ Role: Document management, team collaboration
+   ├─ Services: IIS, SharePoint Online simulation
+   ├─ Key Ports: HTTP (8080), HTTPS (8443), RDP (3391)
+   ├─ Sites: /company, /hr, /finance, /it, /projects
+   ├─ OneDrive: Configured for 6 domain users
+   ├─ Document Libraries: 3 (with sensitive documents)
+   └─ Access: http://localhost:8080 or RDP localhost:3391
+
+4. USER MACHINE (USER-PC-2025) - 172.28.1.20
+   ├─ Role: End user workstation (Windows 11 Pro simulation)
+   ├─ Domain: cyber.lab (domain-joined)
+   ├─ Users: user (User2026!) / admin (Admin2026!)
+   ├─ Services: Office 365 integration, OneDrive, Outlook, Teams
+   ├─ Network: Maps to SharePoint and domain resources
+   └─ Access: RDP localhost:3392 (user/User2026!)
+
+5. HONEYPOT SERVER (WIN-HONEYPOT) - 172.28.1.30 (Externally Exposed)
+   ├─ Role: Deception/detection system
+   ├─ Services: Fake databases, fake documents, web portals
+   ├─ Fake Files: credentials.txt, database_backup.sql, private_key.pem, vpn.ovpn
+   ├─ Key Ports: HTTP (8000), HTTPS (8443), RDP (3393)
+   ├─ Network: Also connected to outside network (192.168.100.0/24)
+   ├─ Purpose: Logs all attacker activity for forensic analysis
+   └─ Access: From external network or RDP localhost:3393
+
+🔐 DOMAIN SECURITY DETAILS
+═════════════════════════════════════════════════════════════════════════════════
+
+Domain Structure:
+  ├─ Domain Name: cyber.lab
+  ├─ NetBIOS: CYBER
+  ├─ Admin Account: LabAdmin / P@ssw0rd2026!
+  ├─ DC FQDN: WIN-DC-2025.cyber.lab
+  └─ Functional Level: Windows Server 2025
+
+Organizational Units (OUs):
+  ├─ OU=IT,dc=cyber,dc=lab
+  │  └─ Contains: LabAdmin, ITManager, TestUser accounts
+  ├─ OU=Finance,dc=cyber,dc=lab
+  │  └─ Contains: FinanceUser account
+  ├─ OU=HR,dc=cyber,dc=lab
+  │  └─ Contains: HRUser account
+  └─ OU=Servers,dc=cyber,dc=lab
+     └─ Contains: Server computer accounts
+
+Security Groups:
+  ├─ IT-Admins (Domain Admins equivalent)
+  ├─ Finance-Team (Finance users)
+  ├─ HR-Team (HR users)
+  └─ Exchange-Admins (Exchange management)
+
+🔒 SECURITY VULNERABILITIES & TESTING OPTIONS
+═════════════════════════════════════════════════════════════════════════════════
+
+Active Directory Attacks:
+  ├─ AS-REP Roasting (users without PreAuth requirement)
+  ├─ Kerberoasting (SPN enumeration and cracking)
+  ├─ Golden Ticket attacks (KRBTGT compromise)
+  ├─ Pass-the-Hash (NTLM relay)
+  ├─ DCSync attacks (credential extraction)
+  └─ BloodHound enumeration (AD visualization)
+
+Exchange Security:
+  ├─ SMTP Open Relay (port 25 exposure)
+  ├─ Weak IMAP authentication (port 143)
+  ├─ POP3 unencrypted credentials (port 110)
+  ├─ HTTP plaintext (port 80)
+  └─ Default credentials on mailboxes
+
+SharePoint & OneDrive:
+  ├─ Unauthenticated document access
+  ├─ Directory listing enabled
+  ├─ Metadata exposure
+  ├─ Weak permissions on document libraries
+  └─ SSRF via document proxy
+
+Network-Wide:
+  ├─ Lateral movement through domain
+  ├─ Honeypot detection and evasion
+  ├─ Internal service reconnaissance
+  └─ Credential harvesting opportunities
+
+📝 QUICK START GUIDE
+═════════════════════════════════════════════════════════════════════════════════
+
+1. Start the Lab:
+   $ cd /workspaces/CYBER.LAB/lab
+   $ ./manage-windows-lab.sh start
+
+2. View Lab Status:
+   $ ./manage-windows-lab.sh status
+
+3. Connect via RDP:
+   Domain Controller: mstsc /v:localhost:3389
+   Exchange Server: mstsc /v:localhost:3390
+   SharePoint: mstsc /v:localhost:3391
+   User Machine: mstsc /v:localhost:3392
+   Honeypot: mstsc /v:localhost:3393
+
+4. LDAP Query (from Linux):
+   $ ldapsearch -x -H ldap://localhost:389 -b "dc=cyber,dc=lab"
+
+5. Test Exchange SMTP:
+   $ telnet localhost 25
+
+6. Security Scan:
+   $ python3 /workspaces/CYBER.LAB/scripts/windows_security_scanner.py
+
+7. Stop the Lab:
+   $ ./manage-windows-lab.sh stop
+
+🎯 SECURITY TESTING SCENARIOS
+═════════════════════════════════════════════════════════════════════════════════
+
+Scenario 1: Domain Reconnaissance
+  └─ Use blackbox_scanner.py to detect hosts
+  └─ Enumerate domain via LDAP (port 389)
+  └─ Extract user list from AD
+  └─ Map domain structure with BloodHound data
+
+Scenario 2: Credential Harvesting
+  └─ Test Exchange for open relay (port 25)
+  └─ Capture IMAP/POP3 traffic unencrypted
+  └─ Attempt default credentials
+  └─ Monitor honeypot for activity
+
+Scenario 3: Lateral Movement
+  └─ Use captured credentials on user machine
+  └─ Access SharePoint documents
+  └─ Enumerate exchange mailboxes
+  └─ Escalate to domain admin
+
+Scenario 4: Persistence
+  └─ Create backdoor accounts in AD
+  └─ Use Golden Ticket for persistence
+  └─ Establish scheduled tasks
+  └─ Set up WinRM backdoor
+
+Scenario 5: Exfiltration
+  └─ Access SharePoint document library
+  └─ Download sensitive files
+  └─ Extract database backups
+  └─ Capture credentials from honeypot
+
+🛠️ USEFUL COMMANDS
+═════════════════════════════════════════════════════════════════════════════════
+
+LDAP Enumeration:
+  ldapsearch -x -H ldap://localhost:389 -b "dc=cyber,dc=lab" "(objectClass=user)"
+  ldapsearch -x -H ldap://localhost:389 -b "dc=cyber,dc=lab" "(objectClass=group)"
+
+SMTP/Mail Testing:
+  telnet localhost 25
+  nmap -p25,110,143,993,995,587 localhost
+
+Kerberos Ticket Enumeration:
+  python3 /workspaces/CYBER.LAB/scripts/windows_security_scanner.py
+
+Exchange Web Access:
+  curl -I http://localhost:80/owa
+
+SharePoint Access:
+  curl -I http://localhost:8080/sites/company
+  curl http://localhost:8080/api/sites
+
+📊 NETWORK ARCHITECTURE
+═════════════════════════════════════════════════════════════════════════════════
+
+INTERNAL LAB NETWORK (172.28.0.0/16):
+  ├─ Windows Servers: 172.28.1.0/24
+  ├─ Web Services: 172.28.0.0/24
+  └─ Monitoring: Elasticsearch (172.28.0.50), Kibana (172.28.0.51)
+
+EXTERNAL NETWORK (192.168.100.0/24):
+  └─ Honeypot Bridge: WIN-HONEYPOT (172.28.1.30 + 192.168.100.x)
+
+Domain Controller: 172.28.1.10 (DNS, LDAP, Kerberos hub)
+Exchange: 172.28.1.11 (Email services)
+SharePoint: 172.28.1.12 (Document hub)
+User PC: 172.28.1.20 (Client workstation)
+Honeypot: 172.28.1.30 (Deception system - external facing)
+
+✅ COMPLETE INFRASTRUCTURE CHECKLIST
+═════════════════════════════════════════════════════════════════════════════════
+
+✓ 5 Windows 2025 Server instances
+✓ Active Directory domain (cyber.lab)
+✓ Exchange Server with SMTP/IMAP/POP3
+✓ SharePoint with document libraries
+✓ End-user workstation (domain-joined)
+✓ Honeypot for detection/evasion
+✓ All on unified internal LAN (172.28.1.0/24)
+✓ Honeypot with external network bridge
+✓ Domain users and security groups
+✓ Network drive mappings
+✓ Email profiles and mailboxes
+✓ VPN configuration
+✓ Security policies and auditing
+✓ Comprehensive logging for forensics
+
+🚀 NEXT STEPS
+═════════════════════════════════════════════════════════════════════════════════
+
+1. Start lab and allow services to fully initialize (5-10 minutes)
+2. Connect to Domain Controller via RDP
+3. Run Windows security scanner
+4. Test LDAP, SMTP, and other services
+5. Practice domain-level attacks safely
+6. Use honeypot to detect and analyze attack patterns
+7. Generate security reports with findings
+
+═════════════════════════════════════════════════════════════════════════════════
+Created: February 22, 2026
+Windows Server 2025 Lab Infrastructure - Complete Enterprise Testing Environment
+═════════════════════════════════════════════════════════════════════════════════
