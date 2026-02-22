@@ -1,0 +1,365 @@
+APPLICATION USER SIMULATION - COMPREHENSIVE GUIDE
+═══════════════════════════════════════════════════════════════════════════════
+
+📋 OVERVIEW
+───────────────────────────────────────────────────────────────────────────────
+
+The Application User Simulator creates realistic user personas across your 
+entire lab infrastructure (Drupal, WordPress, Exchange, SharePoint, LDAP/AD).
+
+Components:
+  1. app_user_simulator.py (403 lines)
+     - Creates realistic user personas (23+ users generated)
+     - Assigns users to departments, roles, permissions
+     - Generates application accounts across all platforms
+     - Simulates user activity with realistic logging
+  
+  2. app_account_manager.py (328 lines)
+     - Manages account lifecycles
+     - Handles password policies per application
+     - Tracks MFA, password expiration, account status
+     - Generates audit reports
+     - Pre-configured policies for each app
+
+👥 USER PERSONAS CREATED
+───────────────────────────────────────────────────────────────────────────────
+
+Departments:
+  ├─ IT (System Admin, Network Admin, Help Desk, Security Officer)
+  ├─ Finance (Accountant, Finance Manager, Controller, Auditor)
+  ├─ HR (HR Manager, Recruiter, Compensation Analyst)
+  ├─ Marketing (Marketing Manager, Content Creator, Social Media Manager)
+  ├─ Engineering (Developer, DevOps, QA Engineer, Tech Lead)
+  └─ Operations (Operations Manager, Project Manager, Coordinator)
+
+User Distribution: 23 total users across departments
+
+Sample Users Generated:
+  ├─ john.smith@cyber.lab (IT - System Admin)
+  ├─ sarah.jones@cyber.lab (Finance - Accountant)
+  ├─ michael.taylor@cyber.lab (HR - HR Manager)
+  ├─ emily.davis@cyber.lab (Marketing - Content Creator)
+  ├─ james.garcia@cyber.lab (Engineering - Developer)
+  └─ ... and 18+ more realistic users
+
+🔐 APPLICATION-SPECIFIC ACCOUNTS
+───────────────────────────────────────────────────────────────────────────────
+
+DRUPAL USERS:
+  Total: 23 user accounts
+  Roles:
+    ├─ administrator (IT staff)
+    ├─ site_manager (IT/Operations)
+    ├─ accountant (Finance)
+    ├─ report_viewer (Finance)
+    ├─ human_resources (HR staff)
+    ├─ content_editor (HR/Marketing)
+    ├─ content_creator (Marketing)
+    ├─ developer (Engineering)
+    ├─ technical_staff (Engineering)
+    └─ staff (General users)
+
+WORDPRESS USERS:
+  Total: 8 user accounts (Marketing + Operations)
+  Roles:
+    ├─ editor (publish_posts, upload_files)
+    ├─ author (edit_posts, upload_files)
+    ├─ contributor (limited post creation)
+    └─ subscriber (basic access)
+
+EXCHANGE MAILBOXES:
+  Total: 23 mailboxes
+  Features per user:
+    ├─ Display Name / Email
+    ├─ Department / Title
+    ├─ Manager assignment
+    ├─ Mailbox size (50-500 MB)
+    ├─ Item count (100-5000 items)
+    └─ Creation and last login dates
+
+SHAREPOINT USERS:
+  Total: 23 users
+  Permissions per site:
+    ├─ View (read-only)
+    ├─ Contribute (view + modify)
+    ├─ Edit (full content control)
+    └─ Full Control (administrative)
+
+  Site Access:
+    ├─ /sites/company (all users)
+    ├─ /sites/finance (Finance department)
+    ├─ /sites/hr (HR department)
+    └─ /sites/it (IT department)
+
+LDAP/ACTIVE DIRECTORY:
+  Total: 23 users
+  User structure:
+    ├─ DN: cn=FirstName LastName,ou=Department,dc=cyber,dc=lab
+    ├─ sAMAccountName: username
+    ├─ Employee ID: EMP{uid}
+    ├─ Department / Title
+    └─ Group memberships
+
+  Group Memberships:
+    ├─ Domain Admins (IT users)
+    ├─ IT-Admins
+    ├─ Finance-Team
+    ├─ HR-Team
+    ├─ Marketing-Team
+    ├─ Engineering-Team
+    └─ Operations-Team
+
+🔑 PASSWORD POLICIES BY APPLICATION
+───────────────────────────────────────────────────────────────────────────────
+
+DRUPAL (/workspaces/CYBER.LAB/scripts/app_user_simulator.py):
+  Minimum Length: 12 characters
+  Uppercase: REQUIRED
+  Lowercase: REQUIRED
+  Digits: REQUIRED
+  Special Characters: REQUIRED
+  Expiration: 90 days
+  Password History: 5 passwords
+  Lockout Policy: 5 failed attempts → 15 min lockout
+
+WORDPRESS:
+  Minimum Length: 10 characters
+  Uppercase: REQUIRED
+  Lowercase: REQUIRED
+  Digits: REQUIRED
+  Special Characters: Optional
+  Expiration: 90 days
+  Password History: 3 passwords
+  Lockout Policy: 5 failed attempts → 30 min lockout
+
+EXCHANGE:
+  Minimum Length: 14 characters (STRICT)
+  Uppercase: REQUIRED
+  Lowercase: REQUIRED
+  Digits: REQUIRED
+  Special Characters: REQUIRED
+  Expiration: 60 days (short cycle)
+  Password History: 10 passwords
+  Lockout Policy: 3 failed attempts → 30 min lockout
+
+SHAREPOINT:
+  Minimum Length: 12 characters
+  Uppercase: REQUIRED
+  Lowercase: REQUIRED
+  Digits: REQUIRED
+  Special Characters: REQUIRED
+  Expiration: 90 days
+  Password History: 5 passwords
+  Lockout Policy: 5 failed attempts → 20 min lockout
+
+LDAP/AD:
+  Minimum Length: 15 characters (STRICTEST)
+  Uppercase: REQUIRED
+  Lowercase: REQUIRED
+  Digits: REQUIRED
+  Special Characters: REQUIRED
+  Expiration: 90 days
+  Password History: 24 passwords (longest)
+  Lockout Policy: 3 failed attempts → 30 min lockout
+
+📊 USER ACTIVITY SIMULATION
+───────────────────────────────────────────────────────────────────────────────
+
+Activities Tracked:
+  ├─ login / logout
+  ├─ email_send / email_receive
+  ├─ sharepoint_document_view
+  ├─ sharepoint_document_edit
+  ├─ drupal_content_view
+  ├─ drupal_content_create
+  ├─ wordpress_post_create
+  ├─ file_access
+  ├─ report_generate
+
+Data Captured per Activity:
+  ├─ Timestamp (within last 24 hours)
+  ├─ Username / Email / Department
+  ├─ Activity type
+  ├─ Application used
+  ├─ Status (SUCCESS/FAILURE)
+  ├─ IP Address (simulated internal IPs)
+  └─ User Agent (browser info)
+
+Sample Activity Log:
+  ✓ 2026-02-22 10:45:12 - john.smith - login - drupal - SUCCESS - 172.28.1.45
+  ✓ 2026-02-22 10:47:33 - sarah.jones - email_send - exchange - SUCCESS - 172.28.1.12
+  ✓ 2026-02-22 11:02:11 - michael.taylor - sharepoint_document_edit - sharepoint - SUCCESS - 172.28.1.15
+
+🎯 USAGE EXAMPLES
+───────────────────────────────────────────────────────────────────────────────
+
+1. Generate Complete User Simulation:
+   $ python3 /workspaces/CYBER.LAB/scripts/app_user_simulator.py
+   
+   Output:
+     - Creates 23 user personas
+     - Generates app-specific accounts (Drupal, WordPress, Exchange, SharePoint, LDAP)
+     - Simulates user activities
+     - Saves to: app_users_simulation.json
+
+2. Manage Application Accounts:
+   $ python3 /workspaces/CYBER.LAB/scripts/app_account_manager.py
+   
+   Output:
+     - Creates sample accounts in multiple applications
+     - Demonstrates MFA management
+     - Shows account audit reports
+     - Displays account lifecycle tracking
+
+3. Access User Data:
+   # From generated JSON file:
+   $ cat app_users_simulation.json | jq '.users[0]'
+   
+   $ cat app_users_simulation.json | jq '.app_users.drupal | length'
+   
+   $ cat app_users_simulation.json | jq '.activity_logs | length'
+
+4. LDAP Query (Using Generated Users):
+   $ ldapsearch -x -H ldap://localhost:389 -b "dc=cyber,dc=lab" "*"
+   
+   # List specific user:
+   $ ldapsearch -x -H ldap://localhost:389 -b "ou=IT,dc=cyber,dc=lab" "sAMAccountName=john.smith"
+
+5. Access Drupal with Generated Credentials:
+   - URL: http://localhost:8001/user/login
+   - Username: (from generated JSON)
+   - Password: (regenerate with app_account_manager.py)
+
+6. Login to WordPress:
+   - URL: http://localhost:8002/wp-login.php
+   - Users: Marketing/Operations department users
+   - From generated simulation data
+
+7. Test Exchange Accounts:
+   $ telnet localhost 143
+   a LOGIN username@cyber.lab password
+   
+   Or use Outlook with generated credentials
+
+8. SharePoint Access:
+   - URL: http://localhost:8080
+   - Use generated SharePoint users
+   - Test role-based access control
+
+📈 AUDITING & REPORTING
+───────────────────────────────────────────────────────────────────────────────
+
+Account Audit Report Includes:
+  ├─ Total accounts created
+  ├─ Per-application account count
+  ├─ Active vs disabled accounts
+  ├─ MFA enablement status
+  ├─ Password expiration tracking
+  ├─ Account lifecycle history
+  │  └─ CREATE, PASSWORD_RESET, MFA_CHANGE, ACCOUNT_DISABLE actions
+  └─ Last 50 account management actions
+
+Sample Report Output:
+  Report Date: 2026-02-22T11:30:00
+  Total Accounts: 81 (3 per app × 6 applications × 4 users)
+  Active Accounts: 78
+  Disabled Accounts: 3
+  MFA Enabled: 12 (14.8%)
+  
+  Expiring Passwords (14 days):
+    ├─ john.smith (Drupal) - 10 days remaining
+    ├─ sarah.jones (Exchange) - 8 days remaining
+    └─ mike.davis (SharePoint) - 12 days remaining
+
+🔒 SECURITY CONSIDERATIONS
+───────────────────────────────────────────────────────────────────────────────
+
+1. Password Generation:
+   - Uses Python secrets module for cryptographic randomness
+   - Follows application-specific policies
+   - SHA-256 hashing for storage
+   - Never stores plaintext passwords
+
+2. Account Lifecycle:
+   - Tracks all account management actions
+   - Enables audit trails
+   - Supports password history validation
+   - Prevents password reuse
+
+3. MFA Support:
+   - Per-application MFA configuration
+   - MFA enablement tracking
+   - Audit reporting on MFA status
+
+4. Access Control:
+   - Department-based segmentation
+   - Role-based permissions
+   - Group membership management
+   - Site/resource-specific access
+
+💡 TESTING SCENARIOS
+───────────────────────────────────────────────────────────────────────────────
+
+Scenario 1: Credential Harvesting
+  ├─ Use generated usernames from different departments
+  ├─ Attempt different password combinations
+  ├─ Monitor failed login attempts
+  └─ Observe account lockouts
+
+Scenario 2: Privilege Escalation
+  ├─ Login as standard user
+  ├─ Attempt to access restricted resources (HR/Finance sites)
+  ├─ Test permission boundaries
+  └─ Try admin operations
+
+Scenario 3: Lateral Movement
+  ├─ Compromise one application (e.g., Drupal)
+  ├─ Use credentials to access other services (Exchange, SharePoint)
+  ├─ Test credential reuse across platforms
+  └─ Map network from user's perspective
+
+Scenario 4: Account Lockout Evasion
+  ├─ Generate multiple users
+  ├─ Distribute login attempts across accounts
+  ├─ Test rate limiting effectiveness
+  └─ Demo account lockout procedures
+
+🚀 QUICK START
+───────────────────────────────────────────────────────────────────────────────
+
+1. Generate Users:
+   $ python3 scripts/app_user_simulator.py
+   
+2. Review Generated Data:
+   $ jq '.summary' app_users_simulation.json
+   
+3. List All Users by App:
+   $ jq '.app_users.drupal[].name' app_users_simulation.json
+   
+4. Manage Accounts:
+   $ python3 scripts/app_account_manager.py
+   
+5. Export for Use:
+   $ cat app_users_simulation.json > /tmp/cyberlab_users.json
+
+📝 OUTPUT FILES
+───────────────────────────────────────────────────────────────────────────────
+
+Generated Files:
+  ├─ app_users_simulation.json (complete user simulation data)
+  ├─ Contains:
+  │  ├─ User personas (23 users)
+  │  ├─ Drupal users with roles
+  │  ├─ WordPress users with capabilities
+  │  ├─ Exchange mailboxes
+  │  ├─ SharePoint permissions
+  │  ├─ LDAP/AD user structure
+  │  └─ Activity logs (100+ entries)
+
+File Size: ~500 KB (with full activity logs)
+
+═══════════════════════════════════════════════════════════════════════════════
+Application User Simulation Complete!
+Created: February 22, 2026
+Ready for Security Testing and Evaluation
+═══════════════════════════════════════════════════════════════════════════════

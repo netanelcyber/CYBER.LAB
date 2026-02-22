@@ -1,0 +1,2558 @@
+{
+  "timestamp": "2026-02-22T11:28:44.702660",
+  "summary": {
+    "total_users": 23,
+    "total_activities": 29,
+    "drupal_users": 23,
+    "wordpress_users": 8,
+    "exchange_mailboxes": 23,
+    "sharepoint_users": 23,
+    "ldap_users": 23
+  },
+  "users": [
+    {
+      "user_id": 1000,
+      "username": "jennifer.williams",
+      "email": "jennifer.williams@cyber.lab",
+      "first_name": "Jennifer",
+      "last_name": "Williams",
+      "department": "IT",
+      "role": "Network Admin",
+      "employee_id": "EMP1000",
+      "password": "9kf#x$5@e6rL",
+      "created_date": "2025-03-07T11:28:44.701764",
+      "last_login": "2026-02-09T11:28:44.701779",
+      "status": "active",
+      "permissions": [
+        "admin",
+        "domain_admin",
+        "backup",
+        "security_audit"
+      ],
+      "applications": {
+        "drupal": true,
+        "wordpress": false,
+        "exchange": true,
+        "sharepoint": true,
+        "vpn": true,
+        "timesheet": true
+      }
+    },
+    {
+      "user_id": 1001,
+      "username": "william.smith",
+      "email": "william.smith@cyber.lab",
+      "first_name": "William",
+      "last_name": "Smith",
+      "department": "IT",
+      "role": "Network Admin",
+      "employee_id": "EMP1001",
+      "password": "gyyOMiL#h7uf",
+      "created_date": "2025-04-26T11:28:44.701796",
+      "last_login": "2026-02-08T11:28:44.701800",
+      "status": "active",
+      "permissions": [
+        "admin",
+        "domain_admin",
+        "backup",
+        "security_audit"
+      ],
+      "applications": {
+        "drupal": true,
+        "wordpress": false,
+        "exchange": true,
+        "sharepoint": true,
+        "vpn": true,
+        "timesheet": true
+      }
+    },
+    {
+      "user_id": 1002,
+      "username": "michael.taylor",
+      "email": "michael.taylor@cyber.lab",
+      "first_name": "Michael",
+      "last_name": "Taylor",
+      "department": "IT",
+      "role": "Network Admin",
+      "employee_id": "EMP1002",
+      "password": "0GiYGIVVz98B",
+      "created_date": "2025-09-17T11:28:44.701812",
+      "last_login": "2026-02-11T11:28:44.701815",
+      "status": "active",
+      "permissions": [
+        "admin",
+        "domain_admin",
+        "backup",
+        "security_audit"
+      ],
+      "applications": {
+        "drupal": true,
+        "wordpress": false,
+        "exchange": true,
+        "sharepoint": true,
+        "vpn": true,
+        "timesheet": true
+      }
+    },
+    {
+      "user_id": 1003,
+      "username": "emily.davis",
+      "email": "emily.davis@cyber.lab",
+      "first_name": "Emily",
+      "last_name": "Davis",
+      "department": "IT",
+      "role": "Network Admin",
+      "employee_id": "EMP1003",
+      "password": "Jm6JfYzI5s9T",
+      "created_date": "2025-11-08T11:28:44.701825",
+      "last_login": "2026-01-29T11:28:44.701828",
+      "status": "active",
+      "permissions": [
+        "admin",
+        "domain_admin",
+        "backup",
+        "security_audit"
+      ],
+      "applications": {
+        "drupal": true,
+        "wordpress": false,
+        "exchange": true,
+        "sharepoint": true,
+        "vpn": true,
+        "timesheet": true
+      }
+    },
+    {
+      "user_id": 1004,
+      "username": "emily.jones",
+      "email": "emily.jones@cyber.lab",
+      "first_name": "Emily",
+      "last_name": "Jones",
+      "department": "Finance",
+      "role": "Finance Manager",
+      "employee_id": "EMP1004",
+      "password": "WkrN8V$zh4ZT",
+      "created_date": "2025-11-19T11:28:44.701839",
+      "last_login": "2026-02-15T11:28:44.701841",
+      "status": "active",
+      "permissions": [
+        "finance_reports",
+        "budget_access",
+        "ledger_view"
+      ],
+      "applications": {
+        "drupal": true,
+        "wordpress": false,
+        "exchange": true,
+        "sharepoint": true,
+        "vpn": false,
+        "timesheet": true
+      }
+    },
+    {
+      "user_id": 1005,
+      "username": "james.garcia",
+      "email": "james.garcia@cyber.lab",
+      "first_name": "James",
+      "last_name": "Garcia",
+      "department": "Finance",
+      "role": "Finance Manager",
+      "employee_id": "EMP1005",
+      "password": "oC!GW0HKpTuP",
+      "created_date": "2025-04-02T11:28:44.701853",
+      "last_login": "2026-01-24T11:28:44.701856",
+      "status": "active",
+      "permissions": [
+        "finance_reports",
+        "budget_access",
+        "ledger_view"
+      ],
+      "applications": {
+        "drupal": true,
+        "wordpress": false,
+        "exchange": true,
+        "sharepoint": true,
+        "vpn": false,
+        "timesheet": true
+      }
+    },
+    {
+      "user_id": 1006,
+      "username": "sarah.anderson",
+      "email": "sarah.anderson@cyber.lab",
+      "first_name": "Sarah",
+      "last_name": "Anderson",
+      "department": "Finance",
+      "role": "Finance Manager",
+      "employee_id": "EMP1006",
+      "password": "pMnz7F38x%W7",
+      "created_date": "2025-09-29T11:28:44.701865",
+      "last_login": "2026-01-26T11:28:44.701867",
+      "status": "active",
+      "permissions": [
+        "finance_reports",
+        "budget_access",
+        "ledger_view"
+      ],
+      "applications": {
+        "drupal": true,
+        "wordpress": false,
+        "exchange": true,
+        "sharepoint": true,
+        "vpn": false,
+        "timesheet": true
+      }
+    },
+    {
+      "user_id": 1007,
+      "username": "william.taylor",
+      "email": "william.taylor@cyber.lab",
+      "first_name": "William",
+      "last_name": "Taylor",
+      "department": "Finance",
+      "role": "Finance Manager",
+      "employee_id": "EMP1007",
+      "password": "MfwqQu@PWyDm",
+      "created_date": "2025-04-13T11:28:44.701877",
+      "last_login": "2026-02-04T11:28:44.701879",
+      "status": "active",
+      "permissions": [
+        "finance_reports",
+        "budget_access",
+        "ledger_view"
+      ],
+      "applications": {
+        "drupal": true,
+        "wordpress": false,
+        "exchange": true,
+        "sharepoint": true,
+        "vpn": false,
+        "timesheet": true
+      }
+    },
+    {
+      "user_id": 1008,
+      "username": "james.brown",
+      "email": "james.brown@cyber.lab",
+      "first_name": "James",
+      "last_name": "Brown",
+      "department": "HR",
+      "role": "HR Manager",
+      "employee_id": "EMP1008",
+      "password": "Uxr0Qtt$Aux2",
+      "created_date": "2025-06-10T11:28:44.701890",
+      "last_login": "2026-01-27T11:28:44.701892",
+      "status": "active",
+      "permissions": [
+        "employee_records",
+        "payroll_view",
+        "benefits_admin"
+      ],
+      "applications": {
+        "drupal": true,
+        "wordpress": false,
+        "exchange": true,
+        "sharepoint": true,
+        "vpn": false,
+        "timesheet": true
+      }
+    },
+    {
+      "user_id": 1009,
+      "username": "lisa.taylor",
+      "email": "lisa.taylor@cyber.lab",
+      "first_name": "Lisa",
+      "last_name": "Taylor",
+      "department": "HR",
+      "role": "HR Manager",
+      "employee_id": "EMP1009",
+      "password": "xpXyvZ%mGf0Q",
+      "created_date": "2025-07-05T11:28:44.701901",
+      "last_login": "2026-02-22T11:28:44.701903",
+      "status": "active",
+      "permissions": [
+        "employee_records",
+        "payroll_view",
+        "benefits_admin"
+      ],
+      "applications": {
+        "drupal": true,
+        "wordpress": false,
+        "exchange": true,
+        "sharepoint": true,
+        "vpn": false,
+        "timesheet": true
+      }
+    },
+    {
+      "user_id": 1010,
+      "username": "sarah.johnson",
+      "email": "sarah.johnson@cyber.lab",
+      "first_name": "Sarah",
+      "last_name": "Johnson",
+      "department": "HR",
+      "role": "HR Manager",
+      "employee_id": "EMP1010",
+      "password": "kMPB8$sDxqpp",
+      "created_date": "2025-07-11T11:28:44.701913",
+      "last_login": "2026-01-25T11:28:44.701915",
+      "status": "active",
+      "permissions": [
+        "employee_records",
+        "payroll_view",
+        "benefits_admin"
+      ],
+      "applications": {
+        "drupal": true,
+        "wordpress": false,
+        "exchange": true,
+        "sharepoint": true,
+        "vpn": false,
+        "timesheet": true
+      }
+    },
+    {
+      "user_id": 1011,
+      "username": "james.williams",
+      "email": "james.williams@cyber.lab",
+      "first_name": "James",
+      "last_name": "Williams",
+      "department": "Marketing",
+      "role": "Marketing Manager",
+      "employee_id": "EMP1011",
+      "password": "vYH3Fn!Ixc5m",
+      "created_date": "2025-05-19T11:28:44.701925",
+      "last_login": "2026-02-14T11:28:44.701927",
+      "status": "active",
+      "permissions": [
+        "content_create",
+        "social_media",
+        "analytics"
+      ],
+      "applications": {
+        "drupal": true,
+        "wordpress": true,
+        "exchange": true,
+        "sharepoint": true,
+        "vpn": false,
+        "timesheet": true
+      }
+    },
+    {
+      "user_id": 1012,
+      "username": "james.davis",
+      "email": "james.davis@cyber.lab",
+      "first_name": "James",
+      "last_name": "Davis",
+      "department": "Marketing",
+      "role": "Marketing Manager",
+      "employee_id": "EMP1012",
+      "password": "NEqG8Q%r@gXf",
+      "created_date": "2025-07-02T11:28:44.701936",
+      "last_login": "2026-02-19T11:28:44.701939",
+      "status": "active",
+      "permissions": [
+        "content_create",
+        "social_media",
+        "analytics"
+      ],
+      "applications": {
+        "drupal": true,
+        "wordpress": true,
+        "exchange": true,
+        "sharepoint": true,
+        "vpn": false,
+        "timesheet": true
+      }
+    },
+    {
+      "user_id": 1013,
+      "username": "michael.miller",
+      "email": "michael.miller@cyber.lab",
+      "first_name": "Michael",
+      "last_name": "Miller",
+      "department": "Marketing",
+      "role": "Marketing Manager",
+      "employee_id": "EMP1013",
+      "password": "lMvE4KbJL1Vc",
+      "created_date": "2025-06-03T11:28:44.701948",
+      "last_login": "2026-02-15T11:28:44.701950",
+      "status": "active",
+      "permissions": [
+        "content_create",
+        "social_media",
+        "analytics"
+      ],
+      "applications": {
+        "drupal": true,
+        "wordpress": true,
+        "exchange": true,
+        "sharepoint": true,
+        "vpn": false,
+        "timesheet": true
+      }
+    },
+    {
+      "user_id": 1014,
+      "username": "mary.williams",
+      "email": "mary.williams@cyber.lab",
+      "first_name": "Mary",
+      "last_name": "Williams",
+      "department": "Marketing",
+      "role": "Marketing Manager",
+      "employee_id": "EMP1014",
+      "password": "SX4QpGjPCU0$",
+      "created_date": "2025-03-19T11:28:44.701959",
+      "last_login": "2026-02-17T11:28:44.701962",
+      "status": "active",
+      "permissions": [
+        "content_create",
+        "social_media",
+        "analytics"
+      ],
+      "applications": {
+        "drupal": true,
+        "wordpress": true,
+        "exchange": true,
+        "sharepoint": true,
+        "vpn": false,
+        "timesheet": true
+      }
+    },
+    {
+      "user_id": 1015,
+      "username": "jessica.miller",
+      "email": "jessica.miller@cyber.lab",
+      "first_name": "Jessica",
+      "last_name": "Miller",
+      "department": "Marketing",
+      "role": "Marketing Manager",
+      "employee_id": "EMP1015",
+      "password": "7B4Ub5%HYl4P",
+      "created_date": "2025-06-24T11:28:44.701972",
+      "last_login": "2026-02-22T11:28:44.701975",
+      "status": "active",
+      "permissions": [
+        "content_create",
+        "social_media",
+        "analytics"
+      ],
+      "applications": {
+        "drupal": true,
+        "wordpress": true,
+        "exchange": true,
+        "sharepoint": true,
+        "vpn": false,
+        "timesheet": true
+      }
+    },
+    {
+      "user_id": 1016,
+      "username": "jennifer.taylor",
+      "email": "jennifer.taylor@cyber.lab",
+      "first_name": "Jennifer",
+      "last_name": "Taylor",
+      "department": "Engineering",
+      "role": "Developer",
+      "employee_id": "EMP1016",
+      "password": "pT653tUZ8aqc",
+      "created_date": "2025-08-20T11:28:44.701985",
+      "last_login": "2026-01-23T11:28:44.701987",
+      "status": "active",
+      "permissions": [
+        "code_commit",
+        "deployment",
+        "ci_cd"
+      ],
+      "applications": {
+        "drupal": true,
+        "wordpress": false,
+        "exchange": true,
+        "sharepoint": true,
+        "vpn": false,
+        "timesheet": true
+      }
+    },
+    {
+      "user_id": 1017,
+      "username": "lisa.garcia",
+      "email": "lisa.garcia@cyber.lab",
+      "first_name": "Lisa",
+      "last_name": "Garcia",
+      "department": "Engineering",
+      "role": "Developer",
+      "employee_id": "EMP1017",
+      "password": "RnNyH@NkfzJT",
+      "created_date": "2025-03-30T11:28:44.701997",
+      "last_login": "2026-01-24T11:28:44.701999",
+      "status": "active",
+      "permissions": [
+        "code_commit",
+        "deployment",
+        "ci_cd"
+      ],
+      "applications": {
+        "drupal": true,
+        "wordpress": false,
+        "exchange": true,
+        "sharepoint": true,
+        "vpn": false,
+        "timesheet": true
+      }
+    },
+    {
+      "user_id": 1018,
+      "username": "robert.davis",
+      "email": "robert.davis@cyber.lab",
+      "first_name": "Robert",
+      "last_name": "Davis",
+      "department": "Engineering",
+      "role": "Developer",
+      "employee_id": "EMP1018",
+      "password": "R!OA7SgWEyta",
+      "created_date": "2025-07-03T11:28:44.702010",
+      "last_login": "2026-02-09T11:28:44.702012",
+      "status": "active",
+      "permissions": [
+        "code_commit",
+        "deployment",
+        "ci_cd"
+      ],
+      "applications": {
+        "drupal": true,
+        "wordpress": false,
+        "exchange": true,
+        "sharepoint": true,
+        "vpn": false,
+        "timesheet": true
+      }
+    },
+    {
+      "user_id": 1019,
+      "username": "lisa.garcia",
+      "email": "lisa.garcia@cyber.lab",
+      "first_name": "Lisa",
+      "last_name": "Garcia",
+      "department": "Engineering",
+      "role": "Developer",
+      "employee_id": "EMP1019",
+      "password": "QcDqKPdwEkT5",
+      "created_date": "2025-12-11T11:28:44.702023",
+      "last_login": "2026-01-26T11:28:44.702025",
+      "status": "active",
+      "permissions": [
+        "code_commit",
+        "deployment",
+        "ci_cd"
+      ],
+      "applications": {
+        "drupal": true,
+        "wordpress": false,
+        "exchange": true,
+        "sharepoint": true,
+        "vpn": false,
+        "timesheet": true
+      }
+    },
+    {
+      "user_id": 1020,
+      "username": "mary.brown",
+      "email": "mary.brown@cyber.lab",
+      "first_name": "Mary",
+      "last_name": "Brown",
+      "department": "Operations",
+      "role": "Project Manager",
+      "employee_id": "EMP1020",
+      "password": "n%QHrXzt$e#z",
+      "created_date": "2025-12-18T11:28:44.702036",
+      "last_login": "2026-01-30T11:28:44.702038",
+      "status": "active",
+      "permissions": [
+        "project_management",
+        "resource_planning",
+        "reporting"
+      ],
+      "applications": {
+        "drupal": true,
+        "wordpress": true,
+        "exchange": true,
+        "sharepoint": true,
+        "vpn": false,
+        "timesheet": true
+      }
+    },
+    {
+      "user_id": 1021,
+      "username": "robert.williams",
+      "email": "robert.williams@cyber.lab",
+      "first_name": "Robert",
+      "last_name": "Williams",
+      "department": "Operations",
+      "role": "Project Manager",
+      "employee_id": "EMP1021",
+      "password": "vr6ImJB3jmeB",
+      "created_date": "2025-03-25T11:28:44.702047",
+      "last_login": "2026-02-14T11:28:44.702049",
+      "status": "active",
+      "permissions": [
+        "project_management",
+        "resource_planning",
+        "reporting"
+      ],
+      "applications": {
+        "drupal": true,
+        "wordpress": true,
+        "exchange": true,
+        "sharepoint": true,
+        "vpn": false,
+        "timesheet": true
+      }
+    },
+    {
+      "user_id": 1022,
+      "username": "william.martinez",
+      "email": "william.martinez@cyber.lab",
+      "first_name": "William",
+      "last_name": "Martinez",
+      "department": "Operations",
+      "role": "Project Manager",
+      "employee_id": "EMP1022",
+      "password": "BoTj1HbGY#W#",
+      "created_date": "2025-10-15T11:28:44.702058",
+      "last_login": "2026-02-21T11:28:44.702060",
+      "status": "active",
+      "permissions": [
+        "project_management",
+        "resource_planning",
+        "reporting"
+      ],
+      "applications": {
+        "drupal": true,
+        "wordpress": true,
+        "exchange": true,
+        "sharepoint": true,
+        "vpn": false,
+        "timesheet": true
+      }
+    }
+  ],
+  "app_users": {
+    "drupal": [
+      {
+        "uid": 1000,
+        "name": "jennifer.williams",
+        "mail": "jennifer.williams@cyber.lab",
+        "pass": "64fb1874bc8ea830626cee216e0829cb",
+        "created": 1741346924,
+        "access": 1770636524,
+        "status": 1,
+        "roles": [
+          "administrator",
+          "site_manager"
+        ],
+        "timezone": "UTC"
+      },
+      {
+        "uid": 1001,
+        "name": "william.smith",
+        "mail": "william.smith@cyber.lab",
+        "pass": "0fb405ff85c4a840b774268c90cb3e2b",
+        "created": 1745666924,
+        "access": 1770550124,
+        "status": 1,
+        "roles": [
+          "administrator",
+          "site_manager"
+        ],
+        "timezone": "UTC"
+      },
+      {
+        "uid": 1002,
+        "name": "michael.taylor",
+        "mail": "michael.taylor@cyber.lab",
+        "pass": "a9ce12c579af25595ceb2f1e97130658",
+        "created": 1758108524,
+        "access": 1770809324,
+        "status": 1,
+        "roles": [
+          "administrator",
+          "site_manager"
+        ],
+        "timezone": "UTC"
+      },
+      {
+        "uid": 1003,
+        "name": "emily.davis",
+        "mail": "emily.davis@cyber.lab",
+        "pass": "10a9b2426ffeeccd78fa45a5e4b07c4a",
+        "created": 1762601324,
+        "access": 1769686124,
+        "status": 1,
+        "roles": [
+          "administrator",
+          "site_manager"
+        ],
+        "timezone": "UTC"
+      },
+      {
+        "uid": 1004,
+        "name": "emily.jones",
+        "mail": "emily.jones@cyber.lab",
+        "pass": "4c3f42ddd585ed8b1c4960d71b412f6f",
+        "created": 1763551724,
+        "access": 1771154924,
+        "status": 1,
+        "roles": [
+          "accountant",
+          "report_viewer"
+        ],
+        "timezone": "UTC"
+      },
+      {
+        "uid": 1005,
+        "name": "james.garcia",
+        "mail": "james.garcia@cyber.lab",
+        "pass": "c0536a6010cf07cdbe8145ce8e24e45d",
+        "created": 1743593324,
+        "access": 1769254124,
+        "status": 1,
+        "roles": [
+          "accountant",
+          "report_viewer"
+        ],
+        "timezone": "UTC"
+      },
+      {
+        "uid": 1006,
+        "name": "sarah.anderson",
+        "mail": "sarah.anderson@cyber.lab",
+        "pass": "c3b25b71b25624b8820f5f283c848afe",
+        "created": 1759145324,
+        "access": 1769426924,
+        "status": 1,
+        "roles": [
+          "accountant",
+          "report_viewer"
+        ],
+        "timezone": "UTC"
+      },
+      {
+        "uid": 1007,
+        "name": "william.taylor",
+        "mail": "william.taylor@cyber.lab",
+        "pass": "b4d930302a16303b7177d6c7e62d77c2",
+        "created": 1744543724,
+        "access": 1770204524,
+        "status": 1,
+        "roles": [
+          "accountant",
+          "report_viewer"
+        ],
+        "timezone": "UTC"
+      },
+      {
+        "uid": 1008,
+        "name": "james.brown",
+        "mail": "james.brown@cyber.lab",
+        "pass": "88d1f53136fecd2dcf09c3ae0055714e",
+        "created": 1749554924,
+        "access": 1769513324,
+        "status": 1,
+        "roles": [
+          "human_resources",
+          "content_editor"
+        ],
+        "timezone": "UTC"
+      },
+      {
+        "uid": 1009,
+        "name": "lisa.taylor",
+        "mail": "lisa.taylor@cyber.lab",
+        "pass": "959946f8496c9c8f715619d3b4d80b2c",
+        "created": 1751714924,
+        "access": 1771759724,
+        "status": 1,
+        "roles": [
+          "human_resources",
+          "content_editor"
+        ],
+        "timezone": "UTC"
+      },
+      {
+        "uid": 1010,
+        "name": "sarah.johnson",
+        "mail": "sarah.johnson@cyber.lab",
+        "pass": "83e853c5d0a67833fce54c29706b7b27",
+        "created": 1752233324,
+        "access": 1769340524,
+        "status": 1,
+        "roles": [
+          "human_resources",
+          "content_editor"
+        ],
+        "timezone": "UTC"
+      },
+      {
+        "uid": 1011,
+        "name": "james.williams",
+        "mail": "james.williams@cyber.lab",
+        "pass": "cc9d949f4bb4bad186ef1a8245fdca35",
+        "created": 1747654124,
+        "access": 1771068524,
+        "status": 1,
+        "roles": [
+          "content_creator",
+          "editor"
+        ],
+        "timezone": "UTC"
+      },
+      {
+        "uid": 1012,
+        "name": "james.davis",
+        "mail": "james.davis@cyber.lab",
+        "pass": "dfa91f279ffcdd1e091083d393216108",
+        "created": 1751455724,
+        "access": 1771500524,
+        "status": 1,
+        "roles": [
+          "content_creator",
+          "editor"
+        ],
+        "timezone": "UTC"
+      },
+      {
+        "uid": 1013,
+        "name": "michael.miller",
+        "mail": "michael.miller@cyber.lab",
+        "pass": "a9af97353d9efdcf21cf13832d4da795",
+        "created": 1748950124,
+        "access": 1771154924,
+        "status": 1,
+        "roles": [
+          "content_creator",
+          "editor"
+        ],
+        "timezone": "UTC"
+      },
+      {
+        "uid": 1014,
+        "name": "mary.williams",
+        "mail": "mary.williams@cyber.lab",
+        "pass": "5899e7f403dc964eda9ab6d563a38367",
+        "created": 1742383724,
+        "access": 1771327724,
+        "status": 1,
+        "roles": [
+          "content_creator",
+          "editor"
+        ],
+        "timezone": "UTC"
+      },
+      {
+        "uid": 1015,
+        "name": "jessica.miller",
+        "mail": "jessica.miller@cyber.lab",
+        "pass": "f79ab507c3cf8c0cb7cdbab84cc0ec49",
+        "created": 1750764524,
+        "access": 1771759724,
+        "status": 1,
+        "roles": [
+          "content_creator",
+          "editor"
+        ],
+        "timezone": "UTC"
+      },
+      {
+        "uid": 1016,
+        "name": "jennifer.taylor",
+        "mail": "jennifer.taylor@cyber.lab",
+        "pass": "cbef7920c37ca317394a570809a0842d",
+        "created": 1755689324,
+        "access": 1769167724,
+        "status": 1,
+        "roles": [
+          "developer",
+          "technical_staff"
+        ],
+        "timezone": "UTC"
+      },
+      {
+        "uid": 1017,
+        "name": "lisa.garcia",
+        "mail": "lisa.garcia@cyber.lab",
+        "pass": "6b09de7c98b0a1264de1f204d168ebc9",
+        "created": 1743334124,
+        "access": 1769254124,
+        "status": 1,
+        "roles": [
+          "developer",
+          "technical_staff"
+        ],
+        "timezone": "UTC"
+      },
+      {
+        "uid": 1018,
+        "name": "robert.davis",
+        "mail": "robert.davis@cyber.lab",
+        "pass": "69d4854cd976c78e63e7e3fb65c81f7d",
+        "created": 1751542124,
+        "access": 1770636524,
+        "status": 1,
+        "roles": [
+          "developer",
+          "technical_staff"
+        ],
+        "timezone": "UTC"
+      },
+      {
+        "uid": 1019,
+        "name": "lisa.garcia",
+        "mail": "lisa.garcia@cyber.lab",
+        "pass": "e775265b33cd2d5dd6c4dc3c19bc39ae",
+        "created": 1765452524,
+        "access": 1769426924,
+        "status": 1,
+        "roles": [
+          "developer",
+          "technical_staff"
+        ],
+        "timezone": "UTC"
+      },
+      {
+        "uid": 1020,
+        "name": "mary.brown",
+        "mail": "mary.brown@cyber.lab",
+        "pass": "bab6be9a283dd005c117801b41a123f2",
+        "created": 1766057324,
+        "access": 1769772524,
+        "status": 1,
+        "roles": [
+          "project_manager",
+          "staff"
+        ],
+        "timezone": "UTC"
+      },
+      {
+        "uid": 1021,
+        "name": "robert.williams",
+        "mail": "robert.williams@cyber.lab",
+        "pass": "6f5833f859b04d84db522c574bcfd375",
+        "created": 1742902124,
+        "access": 1771068524,
+        "status": 1,
+        "roles": [
+          "project_manager",
+          "staff"
+        ],
+        "timezone": "UTC"
+      },
+      {
+        "uid": 1022,
+        "name": "william.martinez",
+        "mail": "william.martinez@cyber.lab",
+        "pass": "8f7e37989603a40352cf9cb28e30f116",
+        "created": 1760527724,
+        "access": 1771673324,
+        "status": 1,
+        "roles": [
+          "project_manager",
+          "staff"
+        ],
+        "timezone": "UTC"
+      }
+    ],
+    "wordpress": [
+      {
+        "ID": 1011,
+        "user_login": "james.williams",
+        "user_email": "james.williams@cyber.lab",
+        "user_registered": "2025-05-19T11:28:44.701925",
+        "user_pass": "cc9d949f4bb4bad186ef1a8245fdca35",
+        "display_name": "James Williams",
+        "user_status": 0,
+        "user_url": "http://cyber.lab/author/james.williams/",
+        "capabilities": {
+          "editor": true,
+          "publish_posts": true
+        }
+      },
+      {
+        "ID": 1012,
+        "user_login": "james.davis",
+        "user_email": "james.davis@cyber.lab",
+        "user_registered": "2025-07-02T11:28:44.701936",
+        "user_pass": "dfa91f279ffcdd1e091083d393216108",
+        "display_name": "James Davis",
+        "user_status": 0,
+        "user_url": "http://cyber.lab/author/james.davis/",
+        "capabilities": {
+          "editor": true,
+          "publish_posts": true
+        }
+      },
+      {
+        "ID": 1013,
+        "user_login": "michael.miller",
+        "user_email": "michael.miller@cyber.lab",
+        "user_registered": "2025-06-03T11:28:44.701948",
+        "user_pass": "a9af97353d9efdcf21cf13832d4da795",
+        "display_name": "Michael Miller",
+        "user_status": 0,
+        "user_url": "http://cyber.lab/author/michael.miller/",
+        "capabilities": {
+          "editor": true,
+          "publish_posts": true
+        }
+      },
+      {
+        "ID": 1014,
+        "user_login": "mary.williams",
+        "user_email": "mary.williams@cyber.lab",
+        "user_registered": "2025-03-19T11:28:44.701959",
+        "user_pass": "5899e7f403dc964eda9ab6d563a38367",
+        "display_name": "Mary Williams",
+        "user_status": 0,
+        "user_url": "http://cyber.lab/author/mary.williams/",
+        "capabilities": {
+          "editor": true,
+          "publish_posts": true
+        }
+      },
+      {
+        "ID": 1015,
+        "user_login": "jessica.miller",
+        "user_email": "jessica.miller@cyber.lab",
+        "user_registered": "2025-06-24T11:28:44.701972",
+        "user_pass": "f79ab507c3cf8c0cb7cdbab84cc0ec49",
+        "display_name": "Jessica Miller",
+        "user_status": 0,
+        "user_url": "http://cyber.lab/author/jessica.miller/",
+        "capabilities": {
+          "editor": true,
+          "publish_posts": true
+        }
+      },
+      {
+        "ID": 1020,
+        "user_login": "mary.brown",
+        "user_email": "mary.brown@cyber.lab",
+        "user_registered": "2025-12-18T11:28:44.702036",
+        "user_pass": "bab6be9a283dd005c117801b41a123f2",
+        "display_name": "Mary Brown",
+        "user_status": 0,
+        "user_url": "http://cyber.lab/author/mary.brown/",
+        "capabilities": {
+          "contributor": true,
+          "upload_files": true
+        }
+      },
+      {
+        "ID": 1021,
+        "user_login": "robert.williams",
+        "user_email": "robert.williams@cyber.lab",
+        "user_registered": "2025-03-25T11:28:44.702047",
+        "user_pass": "6f5833f859b04d84db522c574bcfd375",
+        "display_name": "Robert Williams",
+        "user_status": 0,
+        "user_url": "http://cyber.lab/author/robert.williams/",
+        "capabilities": {
+          "contributor": true,
+          "upload_files": true
+        }
+      },
+      {
+        "ID": 1022,
+        "user_login": "william.martinez",
+        "user_email": "william.martinez@cyber.lab",
+        "user_registered": "2025-10-15T11:28:44.702058",
+        "user_pass": "8f7e37989603a40352cf9cb28e30f116",
+        "display_name": "William Martinez",
+        "user_status": 0,
+        "user_url": "http://cyber.lab/author/william.martinez/",
+        "capabilities": {
+          "contributor": true,
+          "upload_files": true
+        }
+      }
+    ],
+    "exchange": [
+      {
+        "DisplayName": "Jennifer Williams",
+        "UserPrincipalName": "jennifer.williams@cyber.lab",
+        "SamAccountName": "jennifer.williams",
+        "mailNickname": "jennifer.williams",
+        "ProxyAddresses": [
+          "SMTP:jennifer.williams@cyber.lab"
+        ],
+        "Department": "IT",
+        "Title": "Network Admin",
+        "Manager": "william.smith@cyber.lab",
+        "MailboxSize": "365 MB",
+        "ItemCount": 1293,
+        "CreatedDate": "2025-03-07T11:28:44.701764",
+        "LastLogin": "2026-02-09T11:28:44.701779"
+      },
+      {
+        "DisplayName": "William Smith",
+        "UserPrincipalName": "william.smith@cyber.lab",
+        "SamAccountName": "william.smith",
+        "mailNickname": "william.smith",
+        "ProxyAddresses": [
+          "SMTP:william.smith@cyber.lab"
+        ],
+        "Department": "IT",
+        "Title": "Network Admin",
+        "Manager": "emily.davis@cyber.lab",
+        "MailboxSize": "486 MB",
+        "ItemCount": 3949,
+        "CreatedDate": "2025-04-26T11:28:44.701796",
+        "LastLogin": "2026-02-08T11:28:44.701800"
+      },
+      {
+        "DisplayName": "Michael Taylor",
+        "UserPrincipalName": "michael.taylor@cyber.lab",
+        "SamAccountName": "michael.taylor",
+        "mailNickname": "michael.taylor",
+        "ProxyAddresses": [
+          "SMTP:michael.taylor@cyber.lab"
+        ],
+        "Department": "IT",
+        "Title": "Network Admin",
+        "Manager": "emily.davis@cyber.lab",
+        "MailboxSize": "51 MB",
+        "ItemCount": 3747,
+        "CreatedDate": "2025-09-17T11:28:44.701812",
+        "LastLogin": "2026-02-11T11:28:44.701815"
+      },
+      {
+        "DisplayName": "Emily Davis",
+        "UserPrincipalName": "emily.davis@cyber.lab",
+        "SamAccountName": "emily.davis",
+        "mailNickname": "emily.davis",
+        "ProxyAddresses": [
+          "SMTP:emily.davis@cyber.lab"
+        ],
+        "Department": "IT",
+        "Title": "Network Admin",
+        "Manager": "william.smith@cyber.lab",
+        "MailboxSize": "414 MB",
+        "ItemCount": 1805,
+        "CreatedDate": "2025-11-08T11:28:44.701825",
+        "LastLogin": "2026-01-29T11:28:44.701828"
+      },
+      {
+        "DisplayName": "Emily Jones",
+        "UserPrincipalName": "emily.jones@cyber.lab",
+        "SamAccountName": "emily.jones",
+        "mailNickname": "emily.jones",
+        "ProxyAddresses": [
+          "SMTP:emily.jones@cyber.lab"
+        ],
+        "Department": "Finance",
+        "Title": "Finance Manager",
+        "Manager": "william.taylor@cyber.lab",
+        "MailboxSize": "386 MB",
+        "ItemCount": 2557,
+        "CreatedDate": "2025-11-19T11:28:44.701839",
+        "LastLogin": "2026-02-15T11:28:44.701841"
+      },
+      {
+        "DisplayName": "James Garcia",
+        "UserPrincipalName": "james.garcia@cyber.lab",
+        "SamAccountName": "james.garcia",
+        "mailNickname": "james.garcia",
+        "ProxyAddresses": [
+          "SMTP:james.garcia@cyber.lab"
+        ],
+        "Department": "Finance",
+        "Title": "Finance Manager",
+        "Manager": "james.garcia@cyber.lab",
+        "MailboxSize": "281 MB",
+        "ItemCount": 1257,
+        "CreatedDate": "2025-04-02T11:28:44.701853",
+        "LastLogin": "2026-01-24T11:28:44.701856"
+      },
+      {
+        "DisplayName": "Sarah Anderson",
+        "UserPrincipalName": "sarah.anderson@cyber.lab",
+        "SamAccountName": "sarah.anderson",
+        "mailNickname": "sarah.anderson",
+        "ProxyAddresses": [
+          "SMTP:sarah.anderson@cyber.lab"
+        ],
+        "Department": "Finance",
+        "Title": "Finance Manager",
+        "Manager": "emily.jones@cyber.lab",
+        "MailboxSize": "287 MB",
+        "ItemCount": 3396,
+        "CreatedDate": "2025-09-29T11:28:44.701865",
+        "LastLogin": "2026-01-26T11:28:44.701867"
+      },
+      {
+        "DisplayName": "William Taylor",
+        "UserPrincipalName": "william.taylor@cyber.lab",
+        "SamAccountName": "william.taylor",
+        "mailNickname": "william.taylor",
+        "ProxyAddresses": [
+          "SMTP:william.taylor@cyber.lab"
+        ],
+        "Department": "Finance",
+        "Title": "Finance Manager",
+        "Manager": "william.taylor@cyber.lab",
+        "MailboxSize": "403 MB",
+        "ItemCount": 2938,
+        "CreatedDate": "2025-04-13T11:28:44.701877",
+        "LastLogin": "2026-02-04T11:28:44.701879"
+      },
+      {
+        "DisplayName": "James Brown",
+        "UserPrincipalName": "james.brown@cyber.lab",
+        "SamAccountName": "james.brown",
+        "mailNickname": "james.brown",
+        "ProxyAddresses": [
+          "SMTP:james.brown@cyber.lab"
+        ],
+        "Department": "HR",
+        "Title": "HR Manager",
+        "Manager": "lisa.taylor@cyber.lab",
+        "MailboxSize": "237 MB",
+        "ItemCount": 1140,
+        "CreatedDate": "2025-06-10T11:28:44.701890",
+        "LastLogin": "2026-01-27T11:28:44.701892"
+      },
+      {
+        "DisplayName": "Lisa Taylor",
+        "UserPrincipalName": "lisa.taylor@cyber.lab",
+        "SamAccountName": "lisa.taylor",
+        "mailNickname": "lisa.taylor",
+        "ProxyAddresses": [
+          "SMTP:lisa.taylor@cyber.lab"
+        ],
+        "Department": "HR",
+        "Title": "HR Manager",
+        "Manager": "sarah.johnson@cyber.lab",
+        "MailboxSize": "115 MB",
+        "ItemCount": 3076,
+        "CreatedDate": "2025-07-05T11:28:44.701901",
+        "LastLogin": "2026-02-22T11:28:44.701903"
+      },
+      {
+        "DisplayName": "Sarah Johnson",
+        "UserPrincipalName": "sarah.johnson@cyber.lab",
+        "SamAccountName": "sarah.johnson",
+        "mailNickname": "sarah.johnson",
+        "ProxyAddresses": [
+          "SMTP:sarah.johnson@cyber.lab"
+        ],
+        "Department": "HR",
+        "Title": "HR Manager",
+        "Manager": "sarah.johnson@cyber.lab",
+        "MailboxSize": "243 MB",
+        "ItemCount": 845,
+        "CreatedDate": "2025-07-11T11:28:44.701913",
+        "LastLogin": "2026-01-25T11:28:44.701915"
+      },
+      {
+        "DisplayName": "James Williams",
+        "UserPrincipalName": "james.williams@cyber.lab",
+        "SamAccountName": "james.williams",
+        "mailNickname": "james.williams",
+        "ProxyAddresses": [
+          "SMTP:james.williams@cyber.lab"
+        ],
+        "Department": "Marketing",
+        "Title": "Marketing Manager",
+        "Manager": "mary.williams@cyber.lab",
+        "MailboxSize": "424 MB",
+        "ItemCount": 1077,
+        "CreatedDate": "2025-05-19T11:28:44.701925",
+        "LastLogin": "2026-02-14T11:28:44.701927"
+      },
+      {
+        "DisplayName": "James Davis",
+        "UserPrincipalName": "james.davis@cyber.lab",
+        "SamAccountName": "james.davis",
+        "mailNickname": "james.davis",
+        "ProxyAddresses": [
+          "SMTP:james.davis@cyber.lab"
+        ],
+        "Department": "Marketing",
+        "Title": "Marketing Manager",
+        "Manager": "mary.williams@cyber.lab",
+        "MailboxSize": "67 MB",
+        "ItemCount": 2394,
+        "CreatedDate": "2025-07-02T11:28:44.701936",
+        "LastLogin": "2026-02-19T11:28:44.701939"
+      },
+      {
+        "DisplayName": "Michael Miller",
+        "UserPrincipalName": "michael.miller@cyber.lab",
+        "SamAccountName": "michael.miller",
+        "mailNickname": "michael.miller",
+        "ProxyAddresses": [
+          "SMTP:michael.miller@cyber.lab"
+        ],
+        "Department": "Marketing",
+        "Title": "Marketing Manager",
+        "Manager": "michael.miller@cyber.lab",
+        "MailboxSize": "377 MB",
+        "ItemCount": 1631,
+        "CreatedDate": "2025-06-03T11:28:44.701948",
+        "LastLogin": "2026-02-15T11:28:44.701950"
+      },
+      {
+        "DisplayName": "Mary Williams",
+        "UserPrincipalName": "mary.williams@cyber.lab",
+        "SamAccountName": "mary.williams",
+        "mailNickname": "mary.williams",
+        "ProxyAddresses": [
+          "SMTP:mary.williams@cyber.lab"
+        ],
+        "Department": "Marketing",
+        "Title": "Marketing Manager",
+        "Manager": "james.davis@cyber.lab",
+        "MailboxSize": "227 MB",
+        "ItemCount": 1833,
+        "CreatedDate": "2025-03-19T11:28:44.701959",
+        "LastLogin": "2026-02-17T11:28:44.701962"
+      },
+      {
+        "DisplayName": "Jessica Miller",
+        "UserPrincipalName": "jessica.miller@cyber.lab",
+        "SamAccountName": "jessica.miller",
+        "mailNickname": "jessica.miller",
+        "ProxyAddresses": [
+          "SMTP:jessica.miller@cyber.lab"
+        ],
+        "Department": "Marketing",
+        "Title": "Marketing Manager",
+        "Manager": "michael.miller@cyber.lab",
+        "MailboxSize": "259 MB",
+        "ItemCount": 2407,
+        "CreatedDate": "2025-06-24T11:28:44.701972",
+        "LastLogin": "2026-02-22T11:28:44.701975"
+      },
+      {
+        "DisplayName": "Jennifer Taylor",
+        "UserPrincipalName": "jennifer.taylor@cyber.lab",
+        "SamAccountName": "jennifer.taylor",
+        "mailNickname": "jennifer.taylor",
+        "ProxyAddresses": [
+          "SMTP:jennifer.taylor@cyber.lab"
+        ],
+        "Department": "Engineering",
+        "Title": "Developer",
+        "Manager": "jennifer.taylor@cyber.lab",
+        "MailboxSize": "348 MB",
+        "ItemCount": 776,
+        "CreatedDate": "2025-08-20T11:28:44.701985",
+        "LastLogin": "2026-01-23T11:28:44.701987"
+      },
+      {
+        "DisplayName": "Lisa Garcia",
+        "UserPrincipalName": "lisa.garcia@cyber.lab",
+        "SamAccountName": "lisa.garcia",
+        "mailNickname": "lisa.garcia",
+        "ProxyAddresses": [
+          "SMTP:lisa.garcia@cyber.lab"
+        ],
+        "Department": "Engineering",
+        "Title": "Developer",
+        "Manager": "jennifer.taylor@cyber.lab",
+        "MailboxSize": "367 MB",
+        "ItemCount": 3207,
+        "CreatedDate": "2025-03-30T11:28:44.701997",
+        "LastLogin": "2026-01-24T11:28:44.701999"
+      },
+      {
+        "DisplayName": "Robert Davis",
+        "UserPrincipalName": "robert.davis@cyber.lab",
+        "SamAccountName": "robert.davis",
+        "mailNickname": "robert.davis",
+        "ProxyAddresses": [
+          "SMTP:robert.davis@cyber.lab"
+        ],
+        "Department": "Engineering",
+        "Title": "Developer",
+        "Manager": "lisa.garcia@cyber.lab",
+        "MailboxSize": "123 MB",
+        "ItemCount": 1359,
+        "CreatedDate": "2025-07-03T11:28:44.702010",
+        "LastLogin": "2026-02-09T11:28:44.702012"
+      },
+      {
+        "DisplayName": "Lisa Garcia",
+        "UserPrincipalName": "lisa.garcia@cyber.lab",
+        "SamAccountName": "lisa.garcia",
+        "mailNickname": "lisa.garcia",
+        "ProxyAddresses": [
+          "SMTP:lisa.garcia@cyber.lab"
+        ],
+        "Department": "Engineering",
+        "Title": "Developer",
+        "Manager": "jennifer.taylor@cyber.lab",
+        "MailboxSize": "350 MB",
+        "ItemCount": 2106,
+        "CreatedDate": "2025-12-11T11:28:44.702023",
+        "LastLogin": "2026-01-26T11:28:44.702025"
+      },
+      {
+        "DisplayName": "Mary Brown",
+        "UserPrincipalName": "mary.brown@cyber.lab",
+        "SamAccountName": "mary.brown",
+        "mailNickname": "mary.brown",
+        "ProxyAddresses": [
+          "SMTP:mary.brown@cyber.lab"
+        ],
+        "Department": "Operations",
+        "Title": "Project Manager",
+        "Manager": "william.martinez@cyber.lab",
+        "MailboxSize": "343 MB",
+        "ItemCount": 3522,
+        "CreatedDate": "2025-12-18T11:28:44.702036",
+        "LastLogin": "2026-01-30T11:28:44.702038"
+      },
+      {
+        "DisplayName": "Robert Williams",
+        "UserPrincipalName": "robert.williams@cyber.lab",
+        "SamAccountName": "robert.williams",
+        "mailNickname": "robert.williams",
+        "ProxyAddresses": [
+          "SMTP:robert.williams@cyber.lab"
+        ],
+        "Department": "Operations",
+        "Title": "Project Manager",
+        "Manager": "robert.williams@cyber.lab",
+        "MailboxSize": "253 MB",
+        "ItemCount": 4015,
+        "CreatedDate": "2025-03-25T11:28:44.702047",
+        "LastLogin": "2026-02-14T11:28:44.702049"
+      },
+      {
+        "DisplayName": "William Martinez",
+        "UserPrincipalName": "william.martinez@cyber.lab",
+        "SamAccountName": "william.martinez",
+        "mailNickname": "william.martinez",
+        "ProxyAddresses": [
+          "SMTP:william.martinez@cyber.lab"
+        ],
+        "Department": "Operations",
+        "Title": "Project Manager",
+        "Manager": "robert.williams@cyber.lab",
+        "MailboxSize": "292 MB",
+        "ItemCount": 4640,
+        "CreatedDate": "2025-10-15T11:28:44.702058",
+        "LastLogin": "2026-02-21T11:28:44.702060"
+      }
+    ],
+    "sharepoint": [
+      {
+        "LoginName": "cyber\\jennifer.williams",
+        "DisplayName": "Jennifer Williams",
+        "Email": "jennifer.williams@cyber.lab",
+        "Department": "IT",
+        "SitePermissions": [
+          {
+            "Site": "/sites/company",
+            "PermissionLevel": "View"
+          },
+          {
+            "Site": "/sites/it",
+            "PermissionLevel": "Edit"
+          }
+        ]
+      },
+      {
+        "LoginName": "cyber\\william.smith",
+        "DisplayName": "William Smith",
+        "Email": "william.smith@cyber.lab",
+        "Department": "IT",
+        "SitePermissions": [
+          {
+            "Site": "/sites/company",
+            "PermissionLevel": "Edit"
+          },
+          {
+            "Site": "/sites/it",
+            "PermissionLevel": "Edit"
+          }
+        ]
+      },
+      {
+        "LoginName": "cyber\\michael.taylor",
+        "DisplayName": "Michael Taylor",
+        "Email": "michael.taylor@cyber.lab",
+        "Department": "IT",
+        "SitePermissions": [
+          {
+            "Site": "/sites/company",
+            "PermissionLevel": "View"
+          },
+          {
+            "Site": "/sites/it",
+            "PermissionLevel": "View"
+          }
+        ]
+      },
+      {
+        "LoginName": "cyber\\emily.davis",
+        "DisplayName": "Emily Davis",
+        "Email": "emily.davis@cyber.lab",
+        "Department": "IT",
+        "SitePermissions": [
+          {
+            "Site": "/sites/company",
+            "PermissionLevel": "Full Control"
+          },
+          {
+            "Site": "/sites/it",
+            "PermissionLevel": "View"
+          }
+        ]
+      },
+      {
+        "LoginName": "cyber\\emily.jones",
+        "DisplayName": "Emily Jones",
+        "Email": "emily.jones@cyber.lab",
+        "Department": "Finance",
+        "SitePermissions": [
+          {
+            "Site": "/sites/company",
+            "PermissionLevel": "Contribute"
+          },
+          {
+            "Site": "/sites/finance",
+            "PermissionLevel": "Contribute"
+          }
+        ]
+      },
+      {
+        "LoginName": "cyber\\james.garcia",
+        "DisplayName": "James Garcia",
+        "Email": "james.garcia@cyber.lab",
+        "Department": "Finance",
+        "SitePermissions": [
+          {
+            "Site": "/sites/company",
+            "PermissionLevel": "View"
+          },
+          {
+            "Site": "/sites/finance",
+            "PermissionLevel": "Contribute"
+          }
+        ]
+      },
+      {
+        "LoginName": "cyber\\sarah.anderson",
+        "DisplayName": "Sarah Anderson",
+        "Email": "sarah.anderson@cyber.lab",
+        "Department": "Finance",
+        "SitePermissions": [
+          {
+            "Site": "/sites/company",
+            "PermissionLevel": "Contribute"
+          },
+          {
+            "Site": "/sites/finance",
+            "PermissionLevel": "View"
+          }
+        ]
+      },
+      {
+        "LoginName": "cyber\\william.taylor",
+        "DisplayName": "William Taylor",
+        "Email": "william.taylor@cyber.lab",
+        "Department": "Finance",
+        "SitePermissions": [
+          {
+            "Site": "/sites/company",
+            "PermissionLevel": "View"
+          },
+          {
+            "Site": "/sites/finance",
+            "PermissionLevel": "View"
+          }
+        ]
+      },
+      {
+        "LoginName": "cyber\\james.brown",
+        "DisplayName": "James Brown",
+        "Email": "james.brown@cyber.lab",
+        "Department": "HR",
+        "SitePermissions": [
+          {
+            "Site": "/sites/company",
+            "PermissionLevel": "View"
+          },
+          {
+            "Site": "/sites/hr",
+            "PermissionLevel": "View"
+          }
+        ]
+      },
+      {
+        "LoginName": "cyber\\lisa.taylor",
+        "DisplayName": "Lisa Taylor",
+        "Email": "lisa.taylor@cyber.lab",
+        "Department": "HR",
+        "SitePermissions": [
+          {
+            "Site": "/sites/company",
+            "PermissionLevel": "View"
+          },
+          {
+            "Site": "/sites/hr",
+            "PermissionLevel": "Contribute"
+          }
+        ]
+      },
+      {
+        "LoginName": "cyber\\sarah.johnson",
+        "DisplayName": "Sarah Johnson",
+        "Email": "sarah.johnson@cyber.lab",
+        "Department": "HR",
+        "SitePermissions": [
+          {
+            "Site": "/sites/company",
+            "PermissionLevel": "View"
+          },
+          {
+            "Site": "/sites/hr",
+            "PermissionLevel": "Contribute"
+          }
+        ]
+      },
+      {
+        "LoginName": "cyber\\james.williams",
+        "DisplayName": "James Williams",
+        "Email": "james.williams@cyber.lab",
+        "Department": "Marketing",
+        "SitePermissions": [
+          {
+            "Site": "/sites/company",
+            "PermissionLevel": "View"
+          }
+        ]
+      },
+      {
+        "LoginName": "cyber\\james.davis",
+        "DisplayName": "James Davis",
+        "Email": "james.davis@cyber.lab",
+        "Department": "Marketing",
+        "SitePermissions": [
+          {
+            "Site": "/sites/company",
+            "PermissionLevel": "Contribute"
+          }
+        ]
+      },
+      {
+        "LoginName": "cyber\\michael.miller",
+        "DisplayName": "Michael Miller",
+        "Email": "michael.miller@cyber.lab",
+        "Department": "Marketing",
+        "SitePermissions": [
+          {
+            "Site": "/sites/company",
+            "PermissionLevel": "View"
+          }
+        ]
+      },
+      {
+        "LoginName": "cyber\\mary.williams",
+        "DisplayName": "Mary Williams",
+        "Email": "mary.williams@cyber.lab",
+        "Department": "Marketing",
+        "SitePermissions": [
+          {
+            "Site": "/sites/company",
+            "PermissionLevel": "Contribute"
+          }
+        ]
+      },
+      {
+        "LoginName": "cyber\\jessica.miller",
+        "DisplayName": "Jessica Miller",
+        "Email": "jessica.miller@cyber.lab",
+        "Department": "Marketing",
+        "SitePermissions": [
+          {
+            "Site": "/sites/company",
+            "PermissionLevel": "View"
+          }
+        ]
+      },
+      {
+        "LoginName": "cyber\\jennifer.taylor",
+        "DisplayName": "Jennifer Taylor",
+        "Email": "jennifer.taylor@cyber.lab",
+        "Department": "Engineering",
+        "SitePermissions": [
+          {
+            "Site": "/sites/company",
+            "PermissionLevel": "View"
+          }
+        ]
+      },
+      {
+        "LoginName": "cyber\\lisa.garcia",
+        "DisplayName": "Lisa Garcia",
+        "Email": "lisa.garcia@cyber.lab",
+        "Department": "Engineering",
+        "SitePermissions": [
+          {
+            "Site": "/sites/company",
+            "PermissionLevel": "View"
+          }
+        ]
+      },
+      {
+        "LoginName": "cyber\\robert.davis",
+        "DisplayName": "Robert Davis",
+        "Email": "robert.davis@cyber.lab",
+        "Department": "Engineering",
+        "SitePermissions": [
+          {
+            "Site": "/sites/company",
+            "PermissionLevel": "View"
+          }
+        ]
+      },
+      {
+        "LoginName": "cyber\\lisa.garcia",
+        "DisplayName": "Lisa Garcia",
+        "Email": "lisa.garcia@cyber.lab",
+        "Department": "Engineering",
+        "SitePermissions": [
+          {
+            "Site": "/sites/company",
+            "PermissionLevel": "View"
+          }
+        ]
+      },
+      {
+        "LoginName": "cyber\\mary.brown",
+        "DisplayName": "Mary Brown",
+        "Email": "mary.brown@cyber.lab",
+        "Department": "Operations",
+        "SitePermissions": [
+          {
+            "Site": "/sites/company",
+            "PermissionLevel": "View"
+          }
+        ]
+      },
+      {
+        "LoginName": "cyber\\robert.williams",
+        "DisplayName": "Robert Williams",
+        "Email": "robert.williams@cyber.lab",
+        "Department": "Operations",
+        "SitePermissions": [
+          {
+            "Site": "/sites/company",
+            "PermissionLevel": "View"
+          }
+        ]
+      },
+      {
+        "LoginName": "cyber\\william.martinez",
+        "DisplayName": "William Martinez",
+        "Email": "william.martinez@cyber.lab",
+        "Department": "Operations",
+        "SitePermissions": [
+          {
+            "Site": "/sites/company",
+            "PermissionLevel": "Contribute"
+          }
+        ]
+      }
+    ],
+    "ldap": [
+      {
+        "dn": "cn=Jennifer Williams,ou=IT,dc=cyber,dc=lab",
+        "cn": "Jennifer Williams",
+        "sAMAccountName": "jennifer.williams",
+        "mail": "jennifer.williams@cyber.lab",
+        "departmentNumber": "IT",
+        "title": "Network Admin",
+        "employeeNumber": "EMP1000",
+        "objectClass": [
+          "person",
+          "organizationalPerson",
+          "user"
+        ],
+        "userAccountControl": 512,
+        "pwdLastSet": 1741346924,
+        "lastLogon": 1770636524,
+        "memberOf": [
+          "cn=IT-Admins,ou=IT,dc=cyber,dc=lab",
+          "cn=Domain Admins,cn=Builtin,dc=cyber,dc=lab"
+        ]
+      },
+      {
+        "dn": "cn=William Smith,ou=IT,dc=cyber,dc=lab",
+        "cn": "William Smith",
+        "sAMAccountName": "william.smith",
+        "mail": "william.smith@cyber.lab",
+        "departmentNumber": "IT",
+        "title": "Network Admin",
+        "employeeNumber": "EMP1001",
+        "objectClass": [
+          "person",
+          "organizationalPerson",
+          "user"
+        ],
+        "userAccountControl": 512,
+        "pwdLastSet": 1745666924,
+        "lastLogon": 1770550124,
+        "memberOf": [
+          "cn=IT-Admins,ou=IT,dc=cyber,dc=lab",
+          "cn=Domain Admins,cn=Builtin,dc=cyber,dc=lab"
+        ]
+      },
+      {
+        "dn": "cn=Michael Taylor,ou=IT,dc=cyber,dc=lab",
+        "cn": "Michael Taylor",
+        "sAMAccountName": "michael.taylor",
+        "mail": "michael.taylor@cyber.lab",
+        "departmentNumber": "IT",
+        "title": "Network Admin",
+        "employeeNumber": "EMP1002",
+        "objectClass": [
+          "person",
+          "organizationalPerson",
+          "user"
+        ],
+        "userAccountControl": 512,
+        "pwdLastSet": 1758108524,
+        "lastLogon": 1770809324,
+        "memberOf": [
+          "cn=IT-Admins,ou=IT,dc=cyber,dc=lab",
+          "cn=Domain Admins,cn=Builtin,dc=cyber,dc=lab"
+        ]
+      },
+      {
+        "dn": "cn=Emily Davis,ou=IT,dc=cyber,dc=lab",
+        "cn": "Emily Davis",
+        "sAMAccountName": "emily.davis",
+        "mail": "emily.davis@cyber.lab",
+        "departmentNumber": "IT",
+        "title": "Network Admin",
+        "employeeNumber": "EMP1003",
+        "objectClass": [
+          "person",
+          "organizationalPerson",
+          "user"
+        ],
+        "userAccountControl": 512,
+        "pwdLastSet": 1762601324,
+        "lastLogon": 1769686124,
+        "memberOf": [
+          "cn=IT-Admins,ou=IT,dc=cyber,dc=lab",
+          "cn=Domain Admins,cn=Builtin,dc=cyber,dc=lab"
+        ]
+      },
+      {
+        "dn": "cn=Emily Jones,ou=Finance,dc=cyber,dc=lab",
+        "cn": "Emily Jones",
+        "sAMAccountName": "emily.jones",
+        "mail": "emily.jones@cyber.lab",
+        "departmentNumber": "Finance",
+        "title": "Finance Manager",
+        "employeeNumber": "EMP1004",
+        "objectClass": [
+          "person",
+          "organizationalPerson",
+          "user"
+        ],
+        "userAccountControl": 512,
+        "pwdLastSet": 1763551724,
+        "lastLogon": 1771154924,
+        "memberOf": [
+          "cn=Finance-Team,ou=Finance,dc=cyber,dc=lab"
+        ]
+      },
+      {
+        "dn": "cn=James Garcia,ou=Finance,dc=cyber,dc=lab",
+        "cn": "James Garcia",
+        "sAMAccountName": "james.garcia",
+        "mail": "james.garcia@cyber.lab",
+        "departmentNumber": "Finance",
+        "title": "Finance Manager",
+        "employeeNumber": "EMP1005",
+        "objectClass": [
+          "person",
+          "organizationalPerson",
+          "user"
+        ],
+        "userAccountControl": 512,
+        "pwdLastSet": 1743593324,
+        "lastLogon": 1769254124,
+        "memberOf": [
+          "cn=Finance-Team,ou=Finance,dc=cyber,dc=lab"
+        ]
+      },
+      {
+        "dn": "cn=Sarah Anderson,ou=Finance,dc=cyber,dc=lab",
+        "cn": "Sarah Anderson",
+        "sAMAccountName": "sarah.anderson",
+        "mail": "sarah.anderson@cyber.lab",
+        "departmentNumber": "Finance",
+        "title": "Finance Manager",
+        "employeeNumber": "EMP1006",
+        "objectClass": [
+          "person",
+          "organizationalPerson",
+          "user"
+        ],
+        "userAccountControl": 512,
+        "pwdLastSet": 1759145324,
+        "lastLogon": 1769426924,
+        "memberOf": [
+          "cn=Finance-Team,ou=Finance,dc=cyber,dc=lab"
+        ]
+      },
+      {
+        "dn": "cn=William Taylor,ou=Finance,dc=cyber,dc=lab",
+        "cn": "William Taylor",
+        "sAMAccountName": "william.taylor",
+        "mail": "william.taylor@cyber.lab",
+        "departmentNumber": "Finance",
+        "title": "Finance Manager",
+        "employeeNumber": "EMP1007",
+        "objectClass": [
+          "person",
+          "organizationalPerson",
+          "user"
+        ],
+        "userAccountControl": 512,
+        "pwdLastSet": 1744543724,
+        "lastLogon": 1770204524,
+        "memberOf": [
+          "cn=Finance-Team,ou=Finance,dc=cyber,dc=lab"
+        ]
+      },
+      {
+        "dn": "cn=James Brown,ou=HR,dc=cyber,dc=lab",
+        "cn": "James Brown",
+        "sAMAccountName": "james.brown",
+        "mail": "james.brown@cyber.lab",
+        "departmentNumber": "HR",
+        "title": "HR Manager",
+        "employeeNumber": "EMP1008",
+        "objectClass": [
+          "person",
+          "organizationalPerson",
+          "user"
+        ],
+        "userAccountControl": 512,
+        "pwdLastSet": 1749554924,
+        "lastLogon": 1769513324,
+        "memberOf": [
+          "cn=HR-Team,ou=HR,dc=cyber,dc=lab"
+        ]
+      },
+      {
+        "dn": "cn=Lisa Taylor,ou=HR,dc=cyber,dc=lab",
+        "cn": "Lisa Taylor",
+        "sAMAccountName": "lisa.taylor",
+        "mail": "lisa.taylor@cyber.lab",
+        "departmentNumber": "HR",
+        "title": "HR Manager",
+        "employeeNumber": "EMP1009",
+        "objectClass": [
+          "person",
+          "organizationalPerson",
+          "user"
+        ],
+        "userAccountControl": 512,
+        "pwdLastSet": 1751714924,
+        "lastLogon": 1771759724,
+        "memberOf": [
+          "cn=HR-Team,ou=HR,dc=cyber,dc=lab"
+        ]
+      },
+      {
+        "dn": "cn=Sarah Johnson,ou=HR,dc=cyber,dc=lab",
+        "cn": "Sarah Johnson",
+        "sAMAccountName": "sarah.johnson",
+        "mail": "sarah.johnson@cyber.lab",
+        "departmentNumber": "HR",
+        "title": "HR Manager",
+        "employeeNumber": "EMP1010",
+        "objectClass": [
+          "person",
+          "organizationalPerson",
+          "user"
+        ],
+        "userAccountControl": 512,
+        "pwdLastSet": 1752233324,
+        "lastLogon": 1769340524,
+        "memberOf": [
+          "cn=HR-Team,ou=HR,dc=cyber,dc=lab"
+        ]
+      },
+      {
+        "dn": "cn=James Williams,ou=Marketing,dc=cyber,dc=lab",
+        "cn": "James Williams",
+        "sAMAccountName": "james.williams",
+        "mail": "james.williams@cyber.lab",
+        "departmentNumber": "Marketing",
+        "title": "Marketing Manager",
+        "employeeNumber": "EMP1011",
+        "objectClass": [
+          "person",
+          "organizationalPerson",
+          "user"
+        ],
+        "userAccountControl": 512,
+        "pwdLastSet": 1747654124,
+        "lastLogon": 1771068524,
+        "memberOf": [
+          "cn=Marketing-Team,ou=Marketing,dc=cyber,dc=lab"
+        ]
+      },
+      {
+        "dn": "cn=James Davis,ou=Marketing,dc=cyber,dc=lab",
+        "cn": "James Davis",
+        "sAMAccountName": "james.davis",
+        "mail": "james.davis@cyber.lab",
+        "departmentNumber": "Marketing",
+        "title": "Marketing Manager",
+        "employeeNumber": "EMP1012",
+        "objectClass": [
+          "person",
+          "organizationalPerson",
+          "user"
+        ],
+        "userAccountControl": 512,
+        "pwdLastSet": 1751455724,
+        "lastLogon": 1771500524,
+        "memberOf": [
+          "cn=Marketing-Team,ou=Marketing,dc=cyber,dc=lab"
+        ]
+      },
+      {
+        "dn": "cn=Michael Miller,ou=Marketing,dc=cyber,dc=lab",
+        "cn": "Michael Miller",
+        "sAMAccountName": "michael.miller",
+        "mail": "michael.miller@cyber.lab",
+        "departmentNumber": "Marketing",
+        "title": "Marketing Manager",
+        "employeeNumber": "EMP1013",
+        "objectClass": [
+          "person",
+          "organizationalPerson",
+          "user"
+        ],
+        "userAccountControl": 512,
+        "pwdLastSet": 1748950124,
+        "lastLogon": 1771154924,
+        "memberOf": [
+          "cn=Marketing-Team,ou=Marketing,dc=cyber,dc=lab"
+        ]
+      },
+      {
+        "dn": "cn=Mary Williams,ou=Marketing,dc=cyber,dc=lab",
+        "cn": "Mary Williams",
+        "sAMAccountName": "mary.williams",
+        "mail": "mary.williams@cyber.lab",
+        "departmentNumber": "Marketing",
+        "title": "Marketing Manager",
+        "employeeNumber": "EMP1014",
+        "objectClass": [
+          "person",
+          "organizationalPerson",
+          "user"
+        ],
+        "userAccountControl": 512,
+        "pwdLastSet": 1742383724,
+        "lastLogon": 1771327724,
+        "memberOf": [
+          "cn=Marketing-Team,ou=Marketing,dc=cyber,dc=lab"
+        ]
+      },
+      {
+        "dn": "cn=Jessica Miller,ou=Marketing,dc=cyber,dc=lab",
+        "cn": "Jessica Miller",
+        "sAMAccountName": "jessica.miller",
+        "mail": "jessica.miller@cyber.lab",
+        "departmentNumber": "Marketing",
+        "title": "Marketing Manager",
+        "employeeNumber": "EMP1015",
+        "objectClass": [
+          "person",
+          "organizationalPerson",
+          "user"
+        ],
+        "userAccountControl": 512,
+        "pwdLastSet": 1750764524,
+        "lastLogon": 1771759724,
+        "memberOf": [
+          "cn=Marketing-Team,ou=Marketing,dc=cyber,dc=lab"
+        ]
+      },
+      {
+        "dn": "cn=Jennifer Taylor,ou=Engineering,dc=cyber,dc=lab",
+        "cn": "Jennifer Taylor",
+        "sAMAccountName": "jennifer.taylor",
+        "mail": "jennifer.taylor@cyber.lab",
+        "departmentNumber": "Engineering",
+        "title": "Developer",
+        "employeeNumber": "EMP1016",
+        "objectClass": [
+          "person",
+          "organizationalPerson",
+          "user"
+        ],
+        "userAccountControl": 512,
+        "pwdLastSet": 1755689324,
+        "lastLogon": 1769167724,
+        "memberOf": [
+          "cn=Engineering-Team,ou=Engineering,dc=cyber,dc=lab"
+        ]
+      },
+      {
+        "dn": "cn=Lisa Garcia,ou=Engineering,dc=cyber,dc=lab",
+        "cn": "Lisa Garcia",
+        "sAMAccountName": "lisa.garcia",
+        "mail": "lisa.garcia@cyber.lab",
+        "departmentNumber": "Engineering",
+        "title": "Developer",
+        "employeeNumber": "EMP1017",
+        "objectClass": [
+          "person",
+          "organizationalPerson",
+          "user"
+        ],
+        "userAccountControl": 512,
+        "pwdLastSet": 1743334124,
+        "lastLogon": 1769254124,
+        "memberOf": [
+          "cn=Engineering-Team,ou=Engineering,dc=cyber,dc=lab"
+        ]
+      },
+      {
+        "dn": "cn=Robert Davis,ou=Engineering,dc=cyber,dc=lab",
+        "cn": "Robert Davis",
+        "sAMAccountName": "robert.davis",
+        "mail": "robert.davis@cyber.lab",
+        "departmentNumber": "Engineering",
+        "title": "Developer",
+        "employeeNumber": "EMP1018",
+        "objectClass": [
+          "person",
+          "organizationalPerson",
+          "user"
+        ],
+        "userAccountControl": 512,
+        "pwdLastSet": 1751542124,
+        "lastLogon": 1770636524,
+        "memberOf": [
+          "cn=Engineering-Team,ou=Engineering,dc=cyber,dc=lab"
+        ]
+      },
+      {
+        "dn": "cn=Lisa Garcia,ou=Engineering,dc=cyber,dc=lab",
+        "cn": "Lisa Garcia",
+        "sAMAccountName": "lisa.garcia",
+        "mail": "lisa.garcia@cyber.lab",
+        "departmentNumber": "Engineering",
+        "title": "Developer",
+        "employeeNumber": "EMP1019",
+        "objectClass": [
+          "person",
+          "organizationalPerson",
+          "user"
+        ],
+        "userAccountControl": 512,
+        "pwdLastSet": 1765452524,
+        "lastLogon": 1769426924,
+        "memberOf": [
+          "cn=Engineering-Team,ou=Engineering,dc=cyber,dc=lab"
+        ]
+      },
+      {
+        "dn": "cn=Mary Brown,ou=Operations,dc=cyber,dc=lab",
+        "cn": "Mary Brown",
+        "sAMAccountName": "mary.brown",
+        "mail": "mary.brown@cyber.lab",
+        "departmentNumber": "Operations",
+        "title": "Project Manager",
+        "employeeNumber": "EMP1020",
+        "objectClass": [
+          "person",
+          "organizationalPerson",
+          "user"
+        ],
+        "userAccountControl": 512,
+        "pwdLastSet": 1766057324,
+        "lastLogon": 1769772524,
+        "memberOf": [
+          "cn=Operations-Team,ou=Operations,dc=cyber,dc=lab"
+        ]
+      },
+      {
+        "dn": "cn=Robert Williams,ou=Operations,dc=cyber,dc=lab",
+        "cn": "Robert Williams",
+        "sAMAccountName": "robert.williams",
+        "mail": "robert.williams@cyber.lab",
+        "departmentNumber": "Operations",
+        "title": "Project Manager",
+        "employeeNumber": "EMP1021",
+        "objectClass": [
+          "person",
+          "organizationalPerson",
+          "user"
+        ],
+        "userAccountControl": 512,
+        "pwdLastSet": 1742902124,
+        "lastLogon": 1771068524,
+        "memberOf": [
+          "cn=Operations-Team,ou=Operations,dc=cyber,dc=lab"
+        ]
+      },
+      {
+        "dn": "cn=William Martinez,ou=Operations,dc=cyber,dc=lab",
+        "cn": "William Martinez",
+        "sAMAccountName": "william.martinez",
+        "mail": "william.martinez@cyber.lab",
+        "departmentNumber": "Operations",
+        "title": "Project Manager",
+        "employeeNumber": "EMP1022",
+        "objectClass": [
+          "person",
+          "organizationalPerson",
+          "user"
+        ],
+        "userAccountControl": 512,
+        "pwdLastSet": 1760527724,
+        "lastLogon": 1771673324,
+        "memberOf": [
+          "cn=Operations-Team,ou=Operations,dc=cyber,dc=lab"
+        ]
+      }
+    ]
+  },
+  "activity_logs": [
+    {
+      "timestamp": "2026-02-21T19:13:44.702446",
+      "user": "jennifer.williams",
+      "email": "jennifer.williams@cyber.lab",
+      "department": "IT",
+      "activity": "email_send",
+      "application": "exchange",
+      "status": "SUCCESS",
+      "ip_address": "172.28.129.95",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    },
+    {
+      "timestamp": "2026-02-22T05:20:44.702458",
+      "user": "jennifer.williams",
+      "email": "jennifer.williams@cyber.lab",
+      "department": "IT",
+      "activity": "email_receive",
+      "application": "drupal",
+      "status": "SUCCESS",
+      "ip_address": "172.28.65.202",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    },
+    {
+      "timestamp": "2026-02-21T11:31:44.702465",
+      "user": "jennifer.williams",
+      "email": "jennifer.williams@cyber.lab",
+      "department": "IT",
+      "activity": "logout",
+      "application": "wordpress",
+      "status": "SUCCESS",
+      "ip_address": "172.28.243.33",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    },
+    {
+      "timestamp": "2026-02-21T17:27:44.702471",
+      "user": "jennifer.williams",
+      "email": "jennifer.williams@cyber.lab",
+      "department": "IT",
+      "activity": "logout",
+      "application": "sharepoint",
+      "status": "SUCCESS",
+      "ip_address": "172.28.157.222",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    },
+    {
+      "timestamp": "2026-02-21T16:41:44.702479",
+      "user": "william.smith",
+      "email": "william.smith@cyber.lab",
+      "department": "IT",
+      "activity": "file_access",
+      "application": "wordpress",
+      "status": "SUCCESS",
+      "ip_address": "172.28.26.254",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    },
+    {
+      "timestamp": "2026-02-22T00:13:44.702484",
+      "user": "william.smith",
+      "email": "william.smith@cyber.lab",
+      "department": "IT",
+      "activity": "login",
+      "application": "exchange",
+      "status": "SUCCESS",
+      "ip_address": "172.28.158.235",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    },
+    {
+      "timestamp": "2026-02-21T21:37:44.702489",
+      "user": "william.smith",
+      "email": "william.smith@cyber.lab",
+      "department": "IT",
+      "activity": "drupal_content_create",
+      "application": "exchange",
+      "status": "SUCCESS",
+      "ip_address": "172.28.101.124",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    },
+    {
+      "timestamp": "2026-02-22T07:28:44.702494",
+      "user": "william.smith",
+      "email": "william.smith@cyber.lab",
+      "department": "IT",
+      "activity": "sharepoint_document_edit",
+      "application": "sharepoint",
+      "status": "SUCCESS",
+      "ip_address": "172.28.60.161",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    },
+    {
+      "timestamp": "2026-02-21T22:57:44.702500",
+      "user": "william.smith",
+      "email": "william.smith@cyber.lab",
+      "department": "IT",
+      "activity": "drupal_content_view",
+      "application": "drupal",
+      "status": "SUCCESS",
+      "ip_address": "172.28.194.122",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    },
+    {
+      "timestamp": "2026-02-21T12:36:44.702507",
+      "user": "william.smith",
+      "email": "william.smith@cyber.lab",
+      "department": "IT",
+      "activity": "email_receive",
+      "application": "sharepoint",
+      "status": "SUCCESS",
+      "ip_address": "172.28.43.105",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    },
+    {
+      "timestamp": "2026-02-21T19:07:44.702513",
+      "user": "michael.taylor",
+      "email": "michael.taylor@cyber.lab",
+      "department": "IT",
+      "activity": "logout",
+      "application": "drupal",
+      "status": "SUCCESS",
+      "ip_address": "172.28.19.111",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    },
+    {
+      "timestamp": "2026-02-22T02:03:44.702519",
+      "user": "michael.taylor",
+      "email": "michael.taylor@cyber.lab",
+      "department": "IT",
+      "activity": "email_receive",
+      "application": "exchange",
+      "status": "SUCCESS",
+      "ip_address": "172.28.228.193",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    },
+    {
+      "timestamp": "2026-02-22T03:56:44.702525",
+      "user": "michael.taylor",
+      "email": "michael.taylor@cyber.lab",
+      "department": "IT",
+      "activity": "logout",
+      "application": "sharepoint",
+      "status": "SUCCESS",
+      "ip_address": "172.28.0.110",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    },
+    {
+      "timestamp": "2026-02-21T15:04:44.702531",
+      "user": "michael.taylor",
+      "email": "michael.taylor@cyber.lab",
+      "department": "IT",
+      "activity": "logout",
+      "application": "wordpress",
+      "status": "SUCCESS",
+      "ip_address": "172.28.232.134",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    },
+    {
+      "timestamp": "2026-02-21T17:26:44.702536",
+      "user": "michael.taylor",
+      "email": "michael.taylor@cyber.lab",
+      "department": "IT",
+      "activity": "wordpress_post_create",
+      "application": "drupal",
+      "status": "SUCCESS",
+      "ip_address": "172.28.13.211",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    },
+    {
+      "timestamp": "2026-02-21T20:51:44.702543",
+      "user": "michael.taylor",
+      "email": "michael.taylor@cyber.lab",
+      "department": "IT",
+      "activity": "sharepoint_document_edit",
+      "application": "wordpress",
+      "status": "SUCCESS",
+      "ip_address": "172.28.109.207",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    },
+    {
+      "timestamp": "2026-02-22T08:26:44.702550",
+      "user": "emily.davis",
+      "email": "emily.davis@cyber.lab",
+      "department": "IT",
+      "activity": "logout",
+      "application": "sharepoint",
+      "status": "SUCCESS",
+      "ip_address": "172.28.221.27",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    },
+    {
+      "timestamp": "2026-02-22T07:26:44.702556",
+      "user": "emily.davis",
+      "email": "emily.davis@cyber.lab",
+      "department": "IT",
+      "activity": "wordpress_post_create",
+      "application": "exchange",
+      "status": "SUCCESS",
+      "ip_address": "172.28.152.144",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    },
+    {
+      "timestamp": "2026-02-22T10:17:44.702561",
+      "user": "emily.davis",
+      "email": "emily.davis@cyber.lab",
+      "department": "IT",
+      "activity": "file_access",
+      "application": "exchange",
+      "status": "SUCCESS",
+      "ip_address": "172.28.191.25",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    },
+    {
+      "timestamp": "2026-02-21T19:04:44.702566",
+      "user": "emily.davis",
+      "email": "emily.davis@cyber.lab",
+      "department": "IT",
+      "activity": "drupal_content_create",
+      "application": "wordpress",
+      "status": "SUCCESS",
+      "ip_address": "172.28.255.183",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    },
+    {
+      "timestamp": "2026-02-21T22:51:44.702582",
+      "user": "emily.davis",
+      "email": "emily.davis@cyber.lab",
+      "department": "IT",
+      "activity": "sharepoint_document_view",
+      "application": "wordpress",
+      "status": "SUCCESS",
+      "ip_address": "172.28.141.201",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    },
+    {
+      "timestamp": "2026-02-21T20:32:44.702588",
+      "user": "emily.jones",
+      "email": "emily.jones@cyber.lab",
+      "department": "Finance",
+      "activity": "file_access",
+      "application": "sharepoint",
+      "status": "SUCCESS",
+      "ip_address": "172.28.204.203",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    },
+    {
+      "timestamp": "2026-02-22T03:04:44.702593",
+      "user": "emily.jones",
+      "email": "emily.jones@cyber.lab",
+      "department": "Finance",
+      "activity": "file_access",
+      "application": "exchange",
+      "status": "SUCCESS",
+      "ip_address": "172.28.46.161",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    },
+    {
+      "timestamp": "2026-02-22T10:50:44.702599",
+      "user": "emily.jones",
+      "email": "emily.jones@cyber.lab",
+      "department": "Finance",
+      "activity": "drupal_content_create",
+      "application": "exchange",
+      "status": "SUCCESS",
+      "ip_address": "172.28.187.121",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    },
+    {
+      "timestamp": "2026-02-22T05:51:44.702604",
+      "user": "emily.jones",
+      "email": "emily.jones@cyber.lab",
+      "department": "Finance",
+      "activity": "wordpress_post_create",
+      "application": "drupal",
+      "status": "SUCCESS",
+      "ip_address": "172.28.243.148",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    },
+    {
+      "timestamp": "2026-02-22T07:55:44.702610",
+      "user": "emily.jones",
+      "email": "emily.jones@cyber.lab",
+      "department": "Finance",
+      "activity": "email_send",
+      "application": "drupal",
+      "status": "SUCCESS",
+      "ip_address": "172.28.217.163",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    },
+    {
+      "timestamp": "2026-02-22T11:15:44.702615",
+      "user": "emily.jones",
+      "email": "emily.jones@cyber.lab",
+      "department": "Finance",
+      "activity": "wordpress_post_create",
+      "application": "exchange",
+      "status": "SUCCESS",
+      "ip_address": "172.28.122.116",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    },
+    {
+      "timestamp": "2026-02-21T19:08:44.702620",
+      "user": "emily.jones",
+      "email": "emily.jones@cyber.lab",
+      "department": "Finance",
+      "activity": "sharepoint_document_edit",
+      "application": "exchange",
+      "status": "SUCCESS",
+      "ip_address": "172.28.49.24",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    },
+    {
+      "timestamp": "2026-02-21T14:54:44.702625",
+      "user": "emily.jones",
+      "email": "emily.jones@cyber.lab",
+      "department": "Finance",
+      "activity": "logout",
+      "application": "wordpress",
+      "status": "SUCCESS",
+      "ip_address": "172.28.162.182",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    }
+  ]
+}
