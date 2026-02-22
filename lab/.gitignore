@@ -1,0 +1,53 @@
+# Docker volumes - do not commit
+docker-volumes/
+data/
+databases/
+mysql-data/
+
+# Container artifacts
+.docker-compose.log
+docker.log
+docker-compose.override.yml
+
+# Sensitive data
+*.sql
+*.sql.gz
+config/
+secrets/
+.env.local
+.env.production
+
+# Testing artifacts
+logs/
+results/
+*.pcap
+captures/
+
+# Temporary files
+tmp/
+*.tmp
+*.temp
+.cache/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+.DS_Store?
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Node modules (if WordPress uses npm)
+node_modules/
+package-lock.json
+yarn.lock

@@ -1,0 +1,120 @@
+version: '3.8'
+
+services:
+  # VULNERABLE DRUPAL 7.x LAB
+  drupal7-db:
+    image: mysql:5.7
+    container_name: drupal7-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root123456
+      MYSQL_DATABASE: drupal
+      MYSQL_USER: drupal
+      MYSQL_PASSWORD: drupal123456
+    volumes:
+      - drupal7_db:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - lab-network
+
+  drupal7:
+    image: drupal:7.96
+    container_name: drupal7-app
+    depends_on:
+      - drupal7-db
+    environment:
+      DRUPAL_DB_HOST: drupal7-db:3306
+      DRUPAL_DB_NAME: drupal
+      DRUPAL_DB_USER: drupal
+      DRUPAL_DB_PASSWORD: drupal123456
+    volumes:
+      - drupal7_files:/var/www/html/sites/default/files
+      - drupal7_modules:/var/www/html/sites/all/modules
+    ports:
+      - "8001:80"
+    networks:
+      - lab-network
+
+  # VULNERABLE WORDPRESS LAB
+  wordpress-db:
+    image: mysql:5.7
+    container_name: wordpress-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root123456
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress123456
+    volumes:
+      - wordpress_db:/var/lib/mysql
+    ports:
+      - "3307:3306"
+    networks:
+      - lab-network
+
+  wordpress:
+    image: wordpress:6.2-php7.4
+    container_name: wordpress-app
+    depends_on:
+      - wordpress-db
+    environment:
+      WORDPRESS_DB_HOST: wordpress-db:3306
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress123456
+      WORDPRESS_DEBUG: "true"
+      WORDPRESS_DEBUG_LOG: /var/www/html/wp-content/debug.log
+    volumes:
+      - wordpress_files:/var/www/html
+    ports:
+      - "8002:80"
+    networks:
+      - lab-network
+
+  # RADWARE WAF SIMULATOR (Mock)
+  radware-simulator:
+    image: nginx:latest
+    container_name: radware-simulator
+    volumes:
+      - ./radware-nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "8000:80"
+    networks:
+      - lab-network
+
+  # MONITORING & LOGGING
+  elk-elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.0
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    ports:
+      - "9200:9200"
+    networks:
+      - lab-network
+
+  elk-kibana:
+    image: docker.elastic.co/kibana/kibana:7.17.0
+    container_name: kibana
+    depends_on:
+      - elk-elasticsearch
+    ports:
+      - "5601:5601"
+    environment:
+      ELASTICSEARCH_HOSTS: http://elasticsearch:9200
+    networks:
+      - lab-network
+
+volumes:
+  drupal7_db:
+  drupal7_files:
+  drupal7_modules:
+  wordpress_db:
+  wordpress_files:
+  elasticsearch_data:
+
+networks:
+  lab-network:
+    driver: bridge
