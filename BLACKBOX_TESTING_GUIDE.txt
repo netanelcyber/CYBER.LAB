@@ -1,0 +1,411 @@
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║                  CYBER.LAB - BLACKBOX TESTING FRAMEWORK                  ║
+║                          No Prior Knowledge Required                      ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+✅ BLACKBOX TESTING ENVIRONMENT CREATED SUCCESSFULLY
+
+What is Blackbox Testing?
+─────────────────────────────────────────────────────────────────────────
+
+Blackbox testing simulates an external attacker with:
+  ✗ NO source code access
+  ✗ NO database access
+  ✗ NO system configuration knowledge
+  ✓ ONLY external HTTP/network access
+
+This represents real-world attacking scenarios where the attacker must
+discover vulnerabilities through reconnaissance and manual testing.
+
+═══════════════════════════════════════════════════════════════════════════════
+FILES CREATED
+═══════════════════════════════════════════════════════════════════════════════
+
+1. scripts/blackbox_scanner.py (Python tool)
+   └─ Automated blackbox vulnerability scanning
+   └─ Detects CMS, version, endpoints, common vulnerabilities
+   └─ Generates JSON report
+
+2. lab/blackbox_testing.sh (Bash script)
+   └─ Automated blackbox testing workflow
+   └─ 8 testing phases
+   └─ Generates text report
+
+3. lab/BLACKBOX_TESTING_METHODOLOGY.md (Documentation)
+   └─ Complete blackbox testing guide
+   └─ 6 phases with examples
+   └─ Tools and techniques
+   └─ Exploitation methods
+
+═══════════════════════════════════════════════════════════════════════════════
+QUICK START - 3 STEPS
+═══════════════════════════════════════════════════════════════════════════════
+
+STEP 1: Start Lab
+────────────────────────────────────────────────────────────────────────────
+$ cd /workspaces/CYBER.LAB/lab
+$ docker-compose up -d
+
+STEP 2: Install Vulnerable Components
+────────────────────────────────────────────────────────────────────────────
+$ ./install-drupal-modules.sh
+$ ./install-wordpress-plugins.sh
+
+STEP 3: Run Blackbox Testing
+────────────────────────────────────────────────────────────────────────────
+$ ./blackbox_testing.sh http://localhost:8001
+$ python ../scripts/blackbox_scanner.py http://localhost:8001
+
+═══════════════════════════════════════════════════════════════════════════════
+TESTING PHASES
+═══════════════════════════════════════════════════════════════════════════════
+
+Phase 1: Passive Reconnaissance
+  └─ Gather information without active probing
+  └─ Analyze HTTP headers, robots.txt, sitemap.xml
+  └─ Commands: curl, nslookup, whois
+
+Phase 2: Active Reconnaissance  
+  └─ CMS fingerprinting (Drupal/WordPress detection)
+  └─ Version detection from CHANGELOG, API responses
+  └─ Tools: blackbox_scanner.py, curl
+
+Phase 3: Endpoint Enumeration
+  └─ Discover common paths
+  └─ Find admin panels, APIs, user pages
+  └─ Test endpoint availability (HTTP status codes)
+
+Phase 4: Technology Detection
+  └─ Identify installed modules/plugins
+  └─ Analyze technology stack
+  └─ Find API endpoints
+
+Phase 5: Vulnerability Assessment
+  └─ SQL injection testing
+  └─ XSS testing
+  └─ Authentication bypass attempts
+  └─ CSRF token analysis
+
+Phase 6: Authentication Testing
+  └─ Weak credential testing
+  └─ Password policy analysis
+  └─ Account enumeration
+
+Phase 7: API Security Testing
+  └─ REST API endpoint discovery
+  └─ Unauthorized access testing
+  └─ HTTP method testing (PUT, DELETE, PATCH)
+
+Phase 8: Evidence Collection
+  └─ Document all findings
+  └─ Generate reports
+  └─ Collect logs and responses
+
+═══════════════════════════════════════════════════════════════════════════════
+TESTING TECHNIQUES - MANUAL EXAMPLES
+═══════════════════════════════════════════════════════════════════════════════
+
+1. CMS Fingerprinting (Without Internal Knowledge)
+──────────────────────────────────────────────────────────────────────────
+
+$ curl -s http://localhost:8001/ | grep -io "drupal\|wordpress\|joomla"
+
+$ curl -s http://localhost:8001/CHANGELOG.txt | head -1
+
+$ curl -s http://localhost:8001/ | grep -o "sites/all/modules\|wp-content"
+
+Expected Output: Identifies CMS type by external indicators
+
+2. Endpoint Discovery
+──────────────────────────────────────────────────────────────────────────
+
+$ for path in admin user login register api; do
+    echo -n "$path: "
+    curl -s -o /dev/null -w "%{http_code}" http://localhost:8001/$path
+  done
+
+Expected Output: Lists available endpoints with HTTP status codes
+
+3. SQL Injection Testing
+──────────────────────────────────────────────────────────────────────────
+
+$ curl -X POST http://localhost:8001/user/login \
+  -d "name=' OR '1'='1&pass=test" \
+  -H "Content-Type: application/x-www-form-urlencoded"
+
+Expected Output: Bypass authentication if vulnerable
+
+4. API Enumeration
+──────────────────────────────────────────────────────────────────────────
+
+$ curl http://localhost:8001/jsonapi/user/user | jq '.'
+$ curl http://localhost:8002/wp-json/wp/v2/users | jq '.'
+
+Expected Output: Lists users without authentication
+
+5. Weak Credentials Detection
+──────────────────────────────────────────────────────────────────────────
+
+$ for pass in admin 123456 password; do
+    curl -s -X POST http://localhost:8001/user/login \
+      -d "name=admin&pass=$pass" \
+      -H "Content-Type: application/x-www-form-urlencoded" \
+      | grep -q "logout" && echo "Found: admin:$pass"
+  done
+
+Expected Output: Identifies weak default credentials
+
+6. Information Disclosure
+──────────────────────────────────────────────────────────────────────────
+
+$ curl -s http://localhost:8001/admin | grep -i "error\|exception\|warning"
+
+Expected Output: Reveals system information through error messages
+
+7. HTTP Security Headers
+──────────────────────────────────────────────────────────────────────────
+
+$ curl -I http://localhost:8001 | grep -i "x-content\|x-frame\|csp"
+
+Expected Output: Lists missing security headers
+
+═══════════════════════════════════════════════════════════════════════════════
+AUTOMATED TESTING - FULL WORKFLOWS
+═══════════════════════════════════════════════════════════════════════════════
+
+Test 1: Quick Drupal Scanning
+────────────────────────────────────────────────────────────────────────────
+$ python scripts/blackbox_scanner.py http://localhost:8001
+
+Output:
+  ✓ Detects Drupal 7.x
+  ✓ Lists endpoints
+  ✓ Tests for common vulnerabilities
+  ✓ Identifies weak credentials
+  ✓ Generates blackbox_report.json
+
+Test 2: Complete Blackbox Workflow
+────────────────────────────────────────────────────────────────────────────
+$ cd lab
+$ ./blackbox_testing.sh http://localhost:8001
+
+Output:
+  ✓ Phase 1: Information gathering
+  ✓ Phase 2: CMS detection
+  ✓ Phase 3: Endpoint enumeration
+  ✓ Phase 4: Authentication testing
+  ✓ Phase 5: SQL injection testing
+  ✓ Phase 6: Information disclosure
+  ✓ Phase 7: API enumeration
+  ✓ Phase 8: Security headers
+  ✓ Report saved to blackbox_reports/
+
+Test 3: WordPress Scanning
+────────────────────────────────────────────────────────────────────────────
+$ python scripts/blackbox_scanner.py http://localhost:8002
+
+Output:
+  ✓ Detects WordPress
+  ✓ Enumerates plugins (via REST API)
+  ✓ Lists users
+  ✓ Tests authentication
+  ✓ Identifies vulnerabilities
+
+═══════════════════════════════════════════════════════════════════════════════
+FINDINGS AND VULNERABILITIES
+═══════════════════════════════════════════════════════════════════════════════
+
+Typical Blackbox Finding Examples:
+
+1. Weak Credentials
+   Location: /user/login
+   Finding: admin/admin authentication successful
+   Severity: CRITICAL
+
+2. SQL Injection
+   Location: /user/login
+   Finding: ' OR '1'='1 bypasses authentication
+   Severity: CRITICAL
+
+3. Unauthenticated API Access
+   Location: /jsonapi/user/user
+   Finding: User list accessible without authentication
+   Severity: HIGH
+
+4. Missing Security Headers
+   Finding: X-Content-Type-Options, X-Frame-Options missing
+   Severity: MEDIUM
+
+5. Information Disclosure
+   Location: /admin endpoint
+   Finding: Error messages reveal system paths
+   Severity: MEDIUM
+
+6. Default Modules Installed
+   Finding: Views, Services modules enumerated
+   Severity: HIGH (for exploitation)
+
+═══════════════════════════════════════════════════════════════════════════════
+VIEWING RESULTS
+═══════════════════════════════════════════════════════════════════════════════
+
+JSON Reports:
+$ cat blackbox_report.json | jq '.'
+$ cat blackbox_report.json | jq '.vulnerabilities'
+$ cat blackbox_report.json | jq '.endpoints'
+
+Text Reports:
+$ cat blackbox_reports/blackbox_scan_*.txt
+$ tail -100 blackbox_reports/blackbox_scan_*.txt
+
+Analysis:
+$ grep -i "vulnerability\|critical\|high" blackbox_reports/*.txt
+$ cat blackbox_reports/*.txt | wc -l (total findings)
+
+═══════════════════════════════════════════════════════════════════════════════
+REALISTIC BLACKBOX SCENARIOS
+═══════════════════════════════════════════════════════════════════════════════
+
+Scenario 1: External Attacker Discovery
+─────────────────────────────────────────
+1. Scan target with blackbox_scanner.py
+2. Identify CMS (Drupal)
+3. Find admin panel (/admin)
+4. Test weak credentials (admin/admin)
+5. Gain access to admin dashboard
+6. Enumerate modules and settings
+7. Find exploitable vulnerability
+8. Craft and execute exploit
+
+Scenario 2: Reconnaissance → Exploitation
+──────────────────────────────────────────
+1. Passive reconnaissance (robots.txt, headers)
+2. Active fingerprinting (CMS/version detection)
+3. Endpoint enumeration
+4. API discovery and testing
+5. Vulnerability identification
+6. PoC development
+7. Full system compromise
+
+Scenario 3: Security Header Analysis
+──────────────────────────────────────
+1. Fetch HTTP headers from target
+2. Identify missing security headers
+3. Assess XSS/Clickjacking/CSP protection
+4. Document findings
+5. Test XSS exploitation (if headers missing)
+
+═══════════════════════════════════════════════════════════════════════════════
+TOOLS REFERENCE
+═══════════════════════════════════════════════════════════════════════════════
+
+CYBER.LAB Blackbox Tools:
+  └─ blackbox_scanner.py (Python automated scanner)
+  └─ blackbox_testing.sh (Bash multi-phase testing)
+
+Command-Line Tools:
+  └─ curl (HTTP requests)
+  └─ grep (pattern matching)
+  └─ jq (JSON processing)
+  └─ nmap (port scanning)
+  └─ nikto (web vulnerability scanner)
+
+Usage Examples:
+  $ python scripts/blackbox_scanner.py http://localhost:8001
+  $ ./lab/blackbox_testing.sh http://localhost:8001
+  $ curl -I http://localhost:8001
+  $ curl http://localhost:8001/jsonapi/user/user | jq '.'
+
+═══════════════════════════════════════════════════════════════════════════════
+METHODOLOGY - KEY PRINCIPLES
+═══════════════════════════════════════════════════════════════════════════════
+
+✓ External Perspective
+  Attack as if you have NO internal knowledge
+  Only use publicly available information
+
+✓ Systematic Approach
+  Follow phases in order
+  Document findings as you go
+
+✓ Passive → Active
+  Start with passive reconnaissance
+  Progress to active testing only when needed
+
+✓ Evidence Collection
+  Save all HTTP responses
+  Document every finding
+  Create complete audit trail
+
+✓ Realistic Simulation
+  Simulate real attacker capabilities
+  Use common exploitation techniques
+  Test without source code or credentials
+
+═══════════════════════════════════════════════════════════════════════════════
+ETHICAL GUIDELINES
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ DO:
+  • Test ONLY in your own lab environment
+  • Use authoriz ed testing procedures
+  • Document all findings
+  • Report vulnerabilities responsibly
+  • Stay within scope of testing
+
+❌ DON'T:
+  • Test against real systems without permission
+  • Use for malicious purposes
+  • Share vulnerabilities publicly
+  • Exceed authorized scope
+  • Damage or modify systems
+
+═══════════════════════════════════════════════════════════════════════════════
+NEXT STEPS
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Start Lab Environment
+  $ cd /workspaces/CYBER.LAB/lab && docker-compose up -d
+
+2. Install Vulnerable Components
+  $ ./install-drupal-modules.sh && ./install-wordpress-plugins.sh
+
+3. Run Blackbox Tests
+  $ ./blackbox_testing.sh http://localhost:8001
+  $ python ../scripts/blackbox_scanner.py http://localhost:8001
+
+4. Review Results
+  $ cat blackbox_report.json | jq .vulnerabilities
+  $ ls -la blackbox_reports/
+
+5. Learn from Findings
+  └─ Understand each vulnerability
+  └─ Practice exploitation safely
+  └─ Develop remediation strategies
+
+═══════════════════════════════════════════════════════════════════════════════
+RESOURCES
+═══════════════════════════════════════════════════════════════════════════════
+
+Methodology:
+  └─ /workspaces/CYBER.LAB/lab/BLACKBOX_TESTING_METHODOLOGY.md (60+ phases)
+
+Lab Scenarios:
+  └─ /workspaces/CYBER.LAB/lab/LAB_TESTING_GUIDE.md
+
+Tools:
+  └─ /workspaces/CYBER.LAB/scripts/blackbox_scanner.py
+  └─ /workspaces/CYBER.LAB/lab/blackbox_testing.sh
+
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ BLACKBOX TESTING FRAMEWORK READY FOR USE
+
+Start testing: ./blackbox_testing.sh http://localhost:8001
+
+═══════════════════════════════════════════════════════════════════════════════
+Generated: February 22, 2026
+For Authorized Security Testing in Isolated Lab Environments Only
+═══════════════════════════════════════════════════════════════════════════════

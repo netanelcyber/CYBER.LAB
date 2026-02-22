@@ -1,0 +1,322 @@
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║              CYBER.LAB - LOCAL VULNERABLE LAB ENVIRONMENT                 ║
+║                          Setup & Installation Guide                       ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+✅ LAB ENVIRONMENT SUCCESSFULLY CREATED
+
+Location: /workspaces/CYBER.LAB/lab/
+
+═══════════════════════════════════════════════════════════════════════════════
+WHAT'S INCLUDED
+═══════════════════════════════════════════════════════════════════════════════
+
+✓ Docker-Based Vulnerable Environments:
+  ├─ Drupal 7.x (45+ CVEs)
+  └─ WordPress with vulnerable plugins
+  
+✓ RADWARE WAF Simulator:
+  └─ Mock WAF with rate limiting + CAPTCHA simulation
+  
+✓ ELK Monitoring Stack:
+  ├─ Elasticsearch (log storage)
+  └─ Kibana (visualization & analysis)
+  
+✓ Installation Scripts:
+  ├─ setup.sh (start all services)
+  ├─ install-drupal-modules.sh (vulnerable modules)
+  └─ install-wordpress-plugins.sh (vulnerable plugins)
+  
+✓ Complete Documentation:
+  ├─ README.md (overview)
+  ├─ LAB_TESTING_GUIDE.md (detailed scenarios)
+  └─.gitignore (proper versioning)
+
+═══════════════════════════════════════════════════════════════════════════════
+QUICK START (3 STEPS)
+═══════════════════════════════════════════════════════════════════════════════
+
+STEP 1: Start Lab Environment
+────────────────────────────────────────────────────────────────────────────
+$ cd /workspaces/CYBER.LAB/lab
+$ ./setup.sh
+
+Expected output:
+  ✓ Docker images pulled
+  ✓ Containers started
+  ✓ Access URLs displayed
+  ✓ Database credentials shown
+
+STEP 2: Install Vulnerable Modules/Plugins
+────────────────────────────────────────────────────────────────────────────
+$ ./install-drupal-modules.sh
+$ ./install-wordpress-plugins.sh
+
+Expected output:
+  ✓ Drupal modules installed (Views, Services, Entity, etc.)
+  ✓ WordPress plugins installed (Elementor, WooCommerce, etc.)
+  ✓ Admin accounts ready for testing
+
+STEP 3: Start Testing!
+────────────────────────────────────────────────────────────────────────────
+$ cd /workspaces/CYBER.LAB
+$ python scripts/drupal_cve_scanner.py http://localhost:8001
+
+Expected output:
+  ✓ Drupal version detected
+  ✓ 45+ vulnerabilities identified
+  ✓ Modules enumerated
+  ✓ JSON report generated
+
+═══════════════════════════════════════════════════════════════════════════════
+LAB ACCESS URLS
+═══════════════════════════════════════════════════════════════════════════════
+
+┌─────────────────────────────────────┬────────────────────────────────────┐
+│ Service                             │ URL                                │
+├─────────────────────────────────────┼────────────────────────────────────┤
+│ Drupal 7.x                          │ http://localhost:8001              │
+│ WordPress                           │ http://localhost:8002              │
+│ RADWARE WAF Simulator               │ http://localhost:8000              │
+│ Kibana (Monitoring)                 │ http://localhost:5601              │
+├─────────────────────────────────────┼────────────────────────────────────┤
+│ Drupal via WAF                      │ http://localhost:8000/drupal7/     │
+│ WordPress via WAF                   │ http://localhost:8000/wordpress/   │
+└─────────────────────────────────────┴────────────────────────────────────┘
+
+Credentials:
+  Drupal: admin / admin
+  WordPress: admin / admin
+  MySQL: root / root123456
+
+═══════════════════════════════════════════════════════════════════════════════
+FILES CREATED IN /workspaces/CYBER.LAB/lab/
+═══════════════════════════════════════════════════════════════════════════════
+
+1. docker-compose.yml (2.7 KB)
+   Purpose: Define all Docker services
+   Services: Drupal, WordPress, RADWARE, ELK monitoring
+   
+2. radware-nginx.conf (3.2 KB)
+   Purpose: RADWARE WAF simulator rules
+   Features: Rate limiting, SQL injection blocking, path traversal defense
+   
+3. setup.sh (3.6 KB) - EXECUTABLE
+   Purpose: Initialize and start all lab services
+   Usage: ./setup.sh
+   
+4. install-drupal-modules.sh (2.1 KB) - EXECUTABLE
+   Purpose: Install vulnerable Drupal modules
+   Modules: Views, Services, CTools, Features, Entity, File Entity
+   
+5. install-wordpress-plugins.sh (2.6 KB) - EXECUTABLE
+   Purpose: Install vulnerable WordPress plugins
+   Plugins: Elementor, WooCommerce, Contact Form 7, File Manager
+   
+6. README.md (4.6 KB)
+   Purpose: Lab overview and quick reference
+   Contents: Architecture, access URLs, commands, cleanup
+   
+7. LAB_TESTING_GUIDE.md (9.9 KB)
+   Purpose: Detailed testing scenarios and exploitation
+   Scenarios: SQL injection, WAF bypass, RCE, privilege escalation
+   
+8. .gitignore (563 bytes)
+   Purpose: Exclude volumes and sensitive data from git
+
+═══════════════════════════════════════════════════════════════════════════════
+TESTING SCENARIOS (See LAB_TESTING_GUIDE.md for details)
+═══════════════════════════════════════════════════════════════════════════════
+
+1. SQL Injection Testing
+   ├─ Bypass Drupal login form
+   └─ Extract database information
+
+2. RADWARE WAF Bypass Testing
+   ├─ User-Agent rotation
+   ├─ HTTP/2 multiplexing
+   ├─ Cookie stealing & replay
+   └─ Automated CAPTCHA solving simulation
+
+3. Views Module RCE
+   ├─ Drupal AJAX exploitation
+   └─ Remote code execution
+
+4. Entity API Privilege Escalation
+   ├─ Modify user roles via API
+   └─ Create admin accounts
+
+5. File Upload RCE
+   ├─ Upload PHP webshells
+   └─ Execute arbitrary code
+
+6. WordPress Plugin Exploitation
+   ├─ Elementor RCE
+   ├─ File Manager exploitation
+   └─ WooCommerce SQL injection
+
+═══════════════════════════════════════════════════════════════════════════════
+USING CYBER.LAB TOOLS WITH LAB
+═══════════════════════════════════════════════════════════════════════════════
+
+Test 1: Vulnerability Scanning
+────────────────────────────────────────────────────────────────────────────
+$ python scripts/drupal_cve_scanner.py http://localhost:8001
+
+Expected: ✓ 45+ vulnerabilities found
+          ✓ Modules enumerated
+          ✓ JSON report created
+
+Test 2: Privilege Escalation Exploitation
+────────────────────────────────────────────────────────────────────────────
+$ python scripts/drupal_privesc_exploit.py http://localhost:8001
+
+Expected: ✓ SQL injection bypass successful
+          ✓ Views module RCE successful
+          ✓ Node access bypass successful
+          ✓ Escalation chain completed
+
+Test 3: Configuration Extraction
+────────────────────────────────────────────────────────────────────────────
+$ python scripts/drupal_config_extractor.py http://localhost:8001
+
+Expected: ✓ Config files downloaded
+          ✓ Database credentials extracted
+          ✓ API endpoints enumerated
+          ✓ Results saved to JSON
+
+═══════════════════════════════════════════════════════════════════════════════
+MONITORING & EVIDENCE COLLECTION
+═══════════════════════════════════════════════════════════════════════════════
+
+View Real-Time Logs:
+$ docker logs -f drupal7-app          # Drupal requests
+$ docker logs -f wordpress-app         # WordPress requests
+$ docker logs -f radware-simulator     # RADWARE WAF activity
+
+Kibana Monitoring:
+1. Open http://localhost:5601
+2. Create index pattern for nginx-*
+3. View access logs and request patterns
+4. Search for exploits and suspicious activity
+
+Export Evidence:
+$ docker logs drupal7-app > drupal-evidence.log
+$ docker exec drupal7-db mysqldump -u drupal -pdrupal123456 drupal > drupal.sql
+$ docker logs radware-simulator > waf-logs.txt
+
+═══════════════════════════════════════════════════════════════════════════════
+USEFUL COMMANDS
+═══════════════════════════════════════════════════════════════════════════════
+
+Start services:
+$ cd lab && docker-compose up -d
+
+Stop services:
+$ docker-compose down
+
+Remove everything (volumes + containers):
+$ docker-compose down -v
+
+View logs:
+$ docker-compose logs -f
+
+Access Drupal container:
+$ docker exec -it drupal7-app bash
+
+Access database:
+$ docker exec -it drupal7-db mysql -u drupal -pdrupal123456 drupal
+
+Check service status:
+$ docker-compose ps
+
+Restart specific service:
+$ docker-compose restart drupal7-app
+
+View resource usage:
+$ docker stats
+
+═══════════════════════════════════════════════════════════════════════════════
+REQUIREMENTS
+═══════════════════════════════════════════════════════════════════════════════
+
+✓ Docker installed (tested on Linux/Mac/Windows)
+✓ Docker Compose installed
+✓ At least 4 GB RAM available
+✓ At least 20 GB disk space for images
+✓ Internet connection (for initial image pull)
+
+═══════════════════════════════════════════════════════════════════════════════
+SECURITY REMINDERS
+═══════════════════════════════════════════════════════════════════════════════
+
+⚠️  THIS LAB IS INTENTIONALLY VULNERABLE
+
+✅ DO:
+   • Use for learning & authorized testing
+   • Practice in isolated environment only
+   • Document all findings
+   • Test remediation strategies
+   • Develop incident response procedures
+
+❌ DON'T:
+   • Expose to internet
+   • Test against real systems without permission
+   • Use for malicious purposes
+   • Share vulnerability details publicly
+   • Test without proper authorization
+   • Ignore Rules of Engagement
+
+═══════════════════════════════════════════════════════════════════════════════
+NEXT STEPS
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Start lab environment:
+   $ cd /workspaces/CYBER.LAB/lab && ./setup.sh
+
+2. Install vulnerable modules:
+   $ ./install-drupal-modules.sh
+   $ ./install-wordpress-plugins.sh
+
+3. Read testing guide:
+   $ cat LAB_TESTING_GUIDE.md
+
+4. Test CYBER.LAB tools:
+   $ cd .. && python scripts/drupal_cve_scanner.py http://localhost:8001
+
+5. Monitor activity:
+   $ open http://localhost:5601 (Kibana)
+
+6. Practice exploitation:
+   See LAB_TESTING_GUIDE.md for detailed scenarios
+
+═══════════════════════════════════════════════════════════════════════════════
+SUPPORT & DOCUMENTATION
+═══════════════════════════════════════════════════════════════════════════════
+
+Lab Documentation:
+  ├─ /workspaces/CYBER.LAB/lab/README.md
+  └─ /workspaces/CYBER.LAB/lab/LAB_TESTING_GUIDE.md
+
+Docker Documentation:
+  └─ https://docs.docker.com/
+
+Security References:
+  ├─ Drupal: https://www.drupal.org/security
+  └─ WordPress: https://wordpress.org/security/
+
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ LAB SETUP COMPLETE - READY FOR AUTHORIZED TESTING
+
+For questions or issues, refer to:
+  1. LAB_TESTING_GUIDE.md (testing scenarios)
+  2. README.md (overview & commands)
+  3. Docker Compose logs (troubleshooting)
+
+═══════════════════════════════════════════════════════════════════════════════
+Generated: February 22, 2026
+For Authorized Security Testing Only
+═══════════════════════════════════════════════════════════════════════════════
