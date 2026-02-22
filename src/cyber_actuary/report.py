@@ -15,3 +15,14 @@ def write_json(path: Path, obj: Dict[str, Any]) -> None:
 def write_csv(path: Path, df: pd.DataFrame) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     df.to_csv(path, index=False)
+
+
+def write_xlsx(path: Path, df: pd.DataFrame) -> None:
+    """Write a DataFrame to an XLSX file. Requires openpyxl.
+
+    This creates parent directories if needed and writes the DataFrame
+    using pandas' Excel writer.
+    """
+    path.parent.mkdir(parents=True, exist_ok=True)
+    # Let pandas select the engine (openpyxl) and raise a clear error if missing.
+    df.to_excel(path, index=False)

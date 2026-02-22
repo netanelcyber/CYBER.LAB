@@ -16,7 +16,7 @@ from cyber_actuary.frequency import PoissonFrequency
 from cyber_actuary.metrics import summarize_tail
 from cyber_actuary.mixture import MixtureSeverity
 from cyber_actuary.portfolio import PortfolioScenario, simulate_many_years
-from cyber_actuary.report import write_csv, write_json
+from cyber_actuary.report import write_csv, write_json, write_xlsx
 from cyber_actuary.severity import (
     calibrate_lognormal_from_mean,
     fit_lognormal_mu_sigma_from_mean_and_var99,
@@ -87,6 +87,7 @@ def main() -> None:
 
     df = pd.DataFrame(scenarios)
     write_csv(out_dir / "scenario_summaries.csv", df)
+    write_xlsx(out_dir / "scenario_summaries.xlsx", df)
     write_json(out_dir / "scenario_summaries.json", {"rows": scenarios})
 
     print(df.to_string(index=False))
