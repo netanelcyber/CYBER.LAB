@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.venv/
+venv/
+.env
+
+# Build
+dist/
+build/
+*.egg-info/
+
+# Outputs
+artifacts/*.csv
+artifacts/*.json
