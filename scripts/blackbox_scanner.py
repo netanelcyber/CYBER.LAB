@@ -46,6 +46,15 @@ class BlackboxRecon:
         try:
             resp = self.session.get(self.target, headers=self.headers_user_agent())
             
+            # Detect web server first
+            server_info = resp.headers.get('Server', '')
+            self.findings['reconnaissance']['server'] = server_info
+            if 'Apache' in server_info:
+                print(f"[+] Web Server: Apache 2")
+            elif 'nginx' in server_info.lower():
+                print(f"[+] Web Server: Nginx")
+            print(f"[+] Server: {server_info}")
+            
             fingerprints = {
                 'Drupal': [
                     r'Drupal',
@@ -54,6 +63,7 @@ class BlackboxRecon:
                     r'/misc/drupal.js',
                     r'(?:node|user|admin)/\d+',
                     r'X-Generator.*Drupal',
+                    r'X-Powered-By.*Drupal',
                     r'sites/default/settings.php',
                 ],
                 'WordPress': [
@@ -62,6 +72,7 @@ class BlackboxRecon:
                     r'wp-includes',
                     r'/wp-json/',
                     r'X-Generator.*WordPress',
+                    r'X-Powered-By.*WordPress',
                     r'<link rel=["\']stylesheet["\'] id=["\']wp-',
                     r'wp-config.php',
                 ],
@@ -78,13 +89,15 @@ class BlackboxRecon:
                 for pattern in patterns:
                     if re.search(pattern, resp.text, re.IGNORECASE):
                         self.findings['reconnaissance']['cms'] = cms
-                        print(f"[+] Detected: {cms}")
+                        print(f"[+] Detected CMS: {cms}")
                         return cms
-                        
-            # Check headers
-            if 'Server' in resp.headers:
-                self.findings['reconnaissance']['server'] = resp.headers['Server']
-                print(f"[+] Server: {resp.headers['Server']}")
+                    
+                    # Check headers separately
+                    for header_name, header_value in resp.headers.items():
+                        if re.search(pattern, header_value, re.IGNORECASE):
+                            self.findings['reconnaissance']['cms'] = cms
+                            print(f"[+] Detected CMS: {cms} (via {header_name})")
+                            return cms
                 
         except Exception as e:
             print(f"[-] Error fingerprinting CMS: {e}")

@@ -1,0 +1,289 @@
+version: '3.8'
+
+services:
+  # ═══════════════════════════════════════════════════════════════════════════
+  # DRUPAL LABS - Multiple Versions & Web Servers
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  # DRUPAL 7.x (Legacy) - Nginx
+  drupal7-db:
+    image: mysql:5.7
+    container_name: drupal7-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root123456
+      MYSQL_DATABASE: drupal
+      MYSQL_USER: drupal
+      MYSQL_PASSWORD: drupal123456
+    volumes:
+      - drupal7_db:/var/lib/mysql
+    networks:
+      - lab-network
+
+  drupal7:
+    image: drupal:7.96
+    container_name: drupal7-app
+    depends_on:
+      - drupal7-db
+    environment:
+      DRUPAL_DB_HOST: drupal7-db:3306
+      DRUPAL_DB_NAME: drupal
+      DRUPAL_DB_USER: drupal
+      DRUPAL_DB_PASSWORD: drupal123456
+    volumes:
+      - drupal7_files:/var/www/html/sites/default/files
+      - drupal7_modules:/var/www/html/sites/all/modules
+    ports:
+      - "8001:80"
+    networks:
+      - lab-network
+
+  # DRUPAL 9.x (Modern) - Nginx
+  drupal9-db:
+    image: mysql:8.0
+    container_name: drupal9-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root123456
+      MYSQL_DATABASE: drupal9
+      MYSQL_USER: drupal9
+      MYSQL_PASSWORD: drupal9_123456
+    volumes:
+      - drupal9_db:/var/lib/mysql
+    networks:
+      - lab-network
+
+  drupal9:
+    image: drupal:9-fpm-alpine
+    container_name: drupal9-app
+    depends_on:
+      - drupal9-db
+    environment:
+      DRUPAL_DB_HOST: drupal9-db:3306
+      DRUPAL_DB_NAME: drupal9
+      DRUPAL_DB_USER: drupal9
+      DRUPAL_DB_PASSWORD: drupal9_123456
+    volumes:
+      - drupal9_files:/var/www/html/sites/default/files
+      - drupal9_modules:/var/www/html/sites/all/modules
+      - drupal9_code:/var/www/html
+    networks:
+      - lab-network
+
+  drupal9-nginx:
+    image: nginx:latest
+    container_name: drupal9-nginx
+    depends_on:
+      - drupal9
+    volumes:
+      - drupal9_code:/var/www/html:ro
+      - ./nginx-drupal9.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
+      - "8005:80"
+    networks:
+      - lab-network
+
+  # DRUPAL 10.x (Latest) - Apache 2.4
+  drupal10-db:
+    image: mysql:8.0
+    container_name: drupal10-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root123456
+      MYSQL_DATABASE: drupal10
+      MYSQL_USER: drupal10
+      MYSQL_PASSWORD: drupal10_123456
+    volumes:
+      - drupal10_db:/var/lib/mysql
+    networks:
+      - lab-network
+
+  drupal10-apache:
+    image: drupal:10-apache
+    container_name: drupal10-apache-app
+    depends_on:
+      - drupal10-db
+    environment:
+      DRUPAL_DB_HOST: drupal10-db:3306
+      DRUPAL_DB_NAME: drupal10
+      DRUPAL_DB_USER: drupal10
+      DRUPAL_DB_PASSWORD: drupal10_123456
+    volumes:
+      - drupal10_files:/var/www/html/sites/default/files
+      - drupal10_modules:/var/www/html/sites/all/modules
+      - ./apache-drupal10.conf:/etc/apache2/sites-available/000-default.conf
+    ports:
+      - "8006:80"
+    networks:
+      - lab-network
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # WORDPRESS LABS - Multiple Versions & Web Servers
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  wordpress-db:
+    image: mysql:5.7
+    container_name: wordpress-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root123456
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress123456
+    volumes:
+      - wordpress_db:/var/lib/mysql
+    networks:
+      - lab-network
+
+  wordpress:
+    image: wordpress:6.2-php7.4
+    container_name: wordpress-app
+    depends_on:
+      - wordpress-db
+    environment:
+      WORDPRESS_DB_HOST: wordpress-db:3306
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress123456
+      WORDPRESS_DEBUG: "true"
+    volumes:
+      - wordpress_files:/var/www/html
+    ports:
+      - "8002:80"
+    networks:
+      - lab-network
+
+  # WordPress 6.5+ (Latest) - Apache 2.4
+  wordpress-latest-db:
+    image: mysql:8.0
+    container_name: wordpress-latest-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root123456
+      MYSQL_DATABASE: wordpress_latest
+      MYSQL_USER: wp_latest
+      MYSQL_PASSWORD: wp_latest_123456
+    volumes:
+      - wordpress_latest_db:/var/lib/mysql
+    networks:
+      - lab-network
+
+  wordpress-latest-apache:
+    image: wordpress:latest-php8.2-apache
+    container_name: wordpress-latest-apache
+    depends_on:
+      - wordpress-latest-db
+    environment:
+      WORDPRESS_DB_HOST: wordpress-latest-db:3306
+      WORDPRESS_DB_NAME: wordpress_latest
+      WORDPRESS_DB_USER: wp_latest
+      WORDPRESS_DB_PASSWORD: wp_latest_123456
+      WORDPRESS_DEBUG: "true"
+      WORDPRESS_DEBUG_LOG: /var/www/html/wp-content/debug.log
+    volumes:
+      - wordpress_latest_files:/var/www/html
+      - ./apache-wordpress-latest.conf:/etc/apache2/sites-available/000-default.conf
+    ports:
+      - "8007:80"
+    networks:
+      - lab-network
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # REVERSE ENGINEERING & ANALYSIS LAB
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  # Binary Analysis & Decompilation Tools
+  re-tools:
+    image: ubuntu:22.04
+    container_name: re-tools-lab
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./re-lab:/root/re-lab
+      - ./artifacts:/root/artifacts:ro
+    networks:
+      - lab-network
+    command: /bin/bash
+
+  # Web Traffic Analysis (Burp Suite Alternative)
+  mitmproxy-lab:
+    image: mitmproxy/mitmproxy:latest
+    container_name: mitmproxy-interceptor
+    volumes:
+      - ./mitmproxy:/root/.mitmproxy
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    networks:
+      - lab-network
+    command: mitmdump -p 8080 --mode transparent
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # SECURITY MONITORING & ANALYSIS
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.0.0
+    container_name: elasticsearch-lab
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    ports:
+      - "9200:9200"
+    networks:
+      - lab-network
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.0.0
+    container_name: kibana-lab
+    depends_on:
+      - elasticsearch
+    ports:
+      - "5601:5601"
+    environment:
+      ELASTICSEARCH_HOSTS: http://elasticsearch-lab:9200
+    networks:
+      - lab-network
+
+  # Wazuh Agent for advanced monitoring
+  wazuh-manager:
+    image: wazuh/wazuh:4.7.0
+    container_name: wazuh-manager
+    environment:
+      - INDEXER_URL=https://elasticsearch-lab:9200
+      - INDEXER_USERNAME=admin
+      - INDEXER_PASSWORD=SecurePassword123!
+      - FILEBEAT_SSL_VERIFICATION_MODE=full
+      - SSL_CERTIFICATE_AUTHORITIES=/etc/ssl/certs/ca-certificate.crt
+      - SSL_CERTIFICATE=/etc/ssl/certs/cert.pem
+      - SSL_KEY=/etc/ssl/private/key.pem
+      - TLS_CLI_METHOD=TLSv1_2
+      - TLS_STRONGEST_CIPHER=DEFAULT
+      - WAZUH_API_TLS_DEMOMODE=on
+      - WAZUH_DASHBOARD_TLS_DEMOMODE=on
+    ports:
+      - "1514:1514"
+      - "1515:1515"
+      - "514:514/udp"
+      - "55000:55000"
+    networks:
+      - lab-network
+
+volumes:
+  drupal7_db:
+  drupal7_files:
+  drupal7_modules:
+  drupal9_db:
+  drupal9_files:
+  drupal9_modules:
+  drupal9_code:
+  drupal10_db:
+  drupal10_files:
+  drupal10_modules:
+  wordpress_db:
+  wordpress_files:
+  wordpress_latest_db:
+  wordpress_latest_files:
+  elasticsearch_data:
+
+networks:
+  lab-network:
+    driver: bridge
